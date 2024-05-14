@@ -28,10 +28,10 @@ body {
     color:slategray;
 }
 .content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  width: 25%;
+  margin: 0 auto; 
+  }
+
 
 .mainthing{
     margin-left: 20%;
