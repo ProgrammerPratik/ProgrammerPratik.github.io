@@ -8,7 +8,7 @@ body {
     font-family: monospace, sans-serif;
   }
   html {
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
   }
   .quote{
     font-family: 'Montserrat', monospace, sans-serif;
@@ -45,25 +45,25 @@ body {
 
   /* link color */
   a:link {
-    color: green;
+    color: tomato;
     background-color: transparent;
     text-decoration: none;
   }
   
   a:visited {
-    color: pink;
+    color: tomato;
     background-color: transparent;
     text-decoration: none;
   }
   
   a:hover {
-    color: red;
+    color: rgb(251, 181, 193);
     background-color: transparent;
     text-decoration: underline;
   }
   
   a:active {
-    color: yellow;
+    color: red;
     background-color: transparent;
     text-decoration: underline;
   }
