@@ -28,8 +28,10 @@ body {
     color:slategray;
 }
 .content{
+  display: flex;
   width: 25%;
   margin: 0 auto; 
+  
   }
 
 
@@ -38,12 +40,6 @@ body {
     margin-right: 20%;
 }
 
-
-
-
-
-
-  /* link color */
   a:link {
     color: tomato;
     background-color: transparent;
