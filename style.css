@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300");
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+body {
+    font-family: monospace, sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  .quote{
+    font-family: 'Montserrat', monospace, sans-serif;
+    text-align: center;
+    padding: 5%;
+  }
+  .container {
+    text-align: center;
+}
+
+.name{
+    margin-top: 1%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+.name:hover{
+    color:slategray;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainthing{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+
+
+
+
+  /* link color */
+  a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  }
