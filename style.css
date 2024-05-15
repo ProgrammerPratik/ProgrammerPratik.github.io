@@ -92,7 +92,5 @@ body {
     .content{
         display: flex;
         width: 90%;
-        margin-top: 5%;
-        margin-bottom: 5%;
     }
 }
