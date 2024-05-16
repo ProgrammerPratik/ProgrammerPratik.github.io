@@ -27,7 +27,8 @@ html {
 .container {
     text-align: center;
     font-family: 'Montserrat', monospace, sans-serif;
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 
@@ -73,4 +74,8 @@ a:active {
         margin-left: 5%;
         margin-right: 5%;
       }
+      .container {
+        padding-top: 10%;
+        padding-bottom: 5%;
+    }
 }
