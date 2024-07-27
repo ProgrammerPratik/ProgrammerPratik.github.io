@@ -67,15 +67,25 @@ a:active {
     body {
         margin-left: 10%;
         margin-right: 10%;
-      }
+    }
+    .content{
+        padding-top: 5%;
+    }
+    .container {
+        padding-top: 20%;
+        padding-bottom: 20%;
+    }
 }
 @media screen and (max-width: 400px){
     body {
         margin-left: 5%;
         margin-right: 5%;
       }
-      .container {
-        padding-top: 10%;
-        padding-bottom: 5%;
+    .content{
+        padding-top: 5%;
+    }
+    .container {
+        padding-top: 20%;
+        padding-bottom: 20%;
     }
 }
