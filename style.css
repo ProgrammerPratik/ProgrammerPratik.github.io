@@ -12,13 +12,14 @@ body {
 html {
     scroll-behavior:smooth;
 }
-.name{
+.shuffle-text, .name{
     margin-top: 1%;
     margin-bottom: 3%;
     text-align: center;
 }
-.name:hover{
+.shuffle-text:hover, .name:hover{
     color:slategray;
+    
 }
 .content{
     display: flex;
