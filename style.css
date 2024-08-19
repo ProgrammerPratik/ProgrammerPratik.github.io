@@ -16,7 +16,7 @@ html {
     margin-top: 1%;
     margin-bottom: 3%;
     text-align: center;
-    
+
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -57,7 +57,9 @@ a:hover {
 
   /* mediaquery css */
   @media screen and (max-width: 1200px){ 
-
+    .donut{
+        height: 250px;
+    }
 }
 
 @media screen and (max-width: 700px){
@@ -72,6 +74,9 @@ a:hover {
         padding-top: 20%;
         padding-bottom: 20%;
     }
+    .donut{
+        height: 190px;
+    }
 }
 @media screen and (max-width: 400px){
     body {
@@ -84,6 +89,9 @@ a:hover {
     .container {
         padding-top: 20%;
         padding-bottom: 20%;
+    }
+    .donut{
+        height: 180px;
     }
 }
 @media screen and (max-width: 315px){
