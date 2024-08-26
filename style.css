@@ -2,18 +2,21 @@
 
 *{
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
 }
 body {
     font-family: monospace, sans-serif;
     margin-left: 20%;
     margin-right: 20%;
   }
-html {
-    scroll-behavior:smooth;
-}
-.shuffle-text, .name{
-    margin-top: 1%;
+  .site-index{
+    padding: 0;
+  }
+  html {
+      scroll-behavior:smooth;
+    }
+    .shuffle-text, .name{
+        margin-top: 1%;
     margin-bottom: 3%;
     text-align: center;
 
@@ -30,23 +33,49 @@ html {
 }
 .content{
     display: flex;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 .container {
     text-align: center;
     padding-top: 5%;
     padding-bottom: 5%;
 }
+.container, .pfp{
+    max-width:none;
+    height: 350px;
+}
+.donut{
+    max-width:none;
+    height: 350px;
+}
 .quote{
     font-family: 'Montserrat', monospace, sans-serif;
 }
+img{
+    max-width: 100%;
+    height: auto;
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+}
 
-
+pre {
+    background: #f8f8f8;
+    display: block;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin: 5px 0;
+    padding: 1rem;
+    line-height: 1.4;
+    border: 1px solid;
+}
 a {
     color: tomato;
     background-color: transparent;
     text-decoration: none;
     transition: color 0.2s ease;
+    word-wrap: break-word;
+    max-width: 100%;
 }
   
 a:hover {
@@ -54,12 +83,12 @@ a:hover {
     background-color: transparent;
     text-decoration: underline;
 }
-
+.dates{
+    color:darkslategray;
+}
   /* mediaquery css */
   @media screen and (max-width: 1200px){ 
-    .donut{
-        height: 250px;
-    }
+
 }
 
 @media screen and (max-width: 700px){
@@ -89,9 +118,6 @@ a:hover {
     .container {
         padding-top: 20%;
         padding-bottom: 20%;
-    }
-    .donut{
-        height: 180px;
     }
 }
 @media screen and (max-width: 315px){

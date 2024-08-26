@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Different Layers of Privacy for Online Anonymity</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <h1>Different Levels of Privacy for Online Anonymity</h1>
+    <p class="dates">24 Aug, 2024</p> 
+    <br>
+    <p><b>Disclaimer:</b> This article is for educational purposes only. It is <u>not</u> meant to promote or encourage misuse of privacy tools. Readers are responsible for how they use this information.</p>
+    <br>
+    <h2>Table of Contents:</h2>
+    <br>
+    <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#level1">LEVEL 1</a>
+            <ul>
+                <li><a href="#public-wifi">Using Public Wifi</a></li>
+                <li><a href="#vpn">VPNs</a></li>
+                <li><a href="#dns">DNS</a></li>
+                <li><a href="#browser">Browser</a></li>
+            </ul>
+        </li>
+        <li><a href="#introduction">LEVEL 2</a>
+            <ul>
+                <li><a href="#tor">TOR</a></li>
+            </ul>
+        </li>
+        <li><a href="#introduction">LEVEL 3</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+    </ul>
+    <br> <br>
+    <h2 id="introduction">>Introduction</h2>
+    <br>
+    <p><u><b>TL;DR:</b> This article is a simple guide that will help individuals understand and achieve different levels of online privacy and anonymity easily.</u></p>
+    <br>
+    <p>Hello World, in today's interconnected world, nearly everything we do is linked to the internet. This connectivity allows large corporations and governments that dominate this digital space to monitor and record almost every online activity. All of this data, once collected, is stored somewhere, creating the risk of it being breached or used against us.</p> <br>
+    <img src="pics/image01.png" alt="internet" height="200px">
+    <h6>illustration from <a href="https://medium.com/@winniewanghuiyun/privacy-the-characteristics-of-privacy-and-reasons-of-sharing-privacy-b89df9775ef">here</a></h6>
+    <br>
+    <p>We might accept some level of data collection, it's crucial to recognize that personal, private details of our lives—things we often take for granted—are also being gathered and stored, often without our knowledge.</p>
+    <br>
+    <p>While many websites use this data for personalized advertisements, to sell to data brokers, or to enhance customer experiences, not all websites have good intentions. Some might misuse our data for malicious purposes.</p>
+    <br>
+    <h3>Why should I care about privacy?</h3>
+    <br>
+    <p>Everyone has some expectation of privacy. We don't want to indiscriminately share every single aspect of our lives with everyone else. And the fact that you are on this page means you already do care or are eager to learn more.</p>
+    <br>
+    <p>When you visit a web page, your browser sends various types of information to the web server, which can be used to identify and track you. This information includes:</p> <br>
+    <ul>
+        <li>IP Address</li>
+        <li>Device Information</li>
+        <li>Geolocation Data</li>
+        <li>User-Agent String</li>
+        <li>HTTP Referer</li>
+        <li>Cookies</li>
+        <li>Browser Configuration and Plugins</li>
+        <li>WebRTC IP Leaks</li>
+        <li>JavaScript and Active Content Data</li>
+        <li>Screen Resolution and Color Depth</li>
+        <li>Media Device Enumeration</li>
+        <li>Local and Session Storage Data</li>
+    </ul>
+    <br>
+    <p>If this information falls into the wrong hands, it can lead to <u>tracking, fingerprinting, exploitation, or privacy breaches</u>, all of which pose significant risks.</p>
+    <br>
+    <img src="pics/image02.png" alt="sellingdata" height="300px">
+    <h6>illustration from <a href="https://medium.com/@prakhargannu/modern-times-anxiety-in-ai-are-we-there-yet-d694b410ea7e">here</a></h6>
+    <br>
+    <p>This guide aims to help people stay anonymous online without compromising their security and privacy by understanding the different layers of privacy, ranging from simple to complex.</p>
+    <br>
+    <p>We need to understand that Privacy and Anonymity both has different meanings:</p>
+    <ul>
+        <li>Privacy is about people knowing who you are but not knowing what you are doing.</li>
+        <li>Anonymity is about people knowing what you are doing but not knowing who you are</li>
+    </ul>
+    <br>
+    <p>So lets go through different levels of measures you can take for getting more secure online...</p>
+    <br><br><br>
+    <h2 id="level1">>LEVEL 1</h2>
+    <p>(Simple, Secure and Basic privacy measures)</p>
+    <br>
+    <h3 id="public-wifi">1. Using Public Wifi</h3>
+    <br>
+    <p>If you're knowledgeable about internet privacy and anonymity, then you already know that this is a no brainer. Surfing the web using your own internet connection is almost like giving your real name and address to random people you meet on street. Even using VPN or Proxies can be considered <u>risky</u>, as your real IP address is still visible on the other end, posing a risk of compromise.</p>
+    <br>
+    <p>So, connect to the internet via someone else's router (a cafe or another home for example). The worst-case scenario, if they trace your IP, is they will only know "it was someone connecting from this cafe or home".</p>
+    <br>
+    <p><u>NOTE</u>: Always be cautious about which Wi-Fi network you connect to. Avoid connecting to any random public Wi-Fi, as it may expose you to risks like packet sniffing, data capture, and man-in-the-middle (MITM) attacks.</p>
+    <br>
+    <img src="pics/image07.png" alt="public-wifi-danger-pic" style="height:400px;">
+    <br>
+    <p>So make sure you're connecting to secure Wifi.</p>
+    <br>
+    <br>
+    <h3 id="vpn">2. VPNs</h3>
+    <p>Virtual private network (VPN) acts as an intermediary between the user getting online and connecting to the internet by hiding their IP address. Using a VPN creates a private, encrypted tunnel through which a user's device can access the internet while hiding their personal information, location, and other data.</p>
+    <br>
+    <img src="pics/image03.png" alt="vpn" height="300px">
+    <h6>illustration from <a href="https://medium.com/spidernitt/understand-how-vpn-works-5665a75770bd">here</a></h6>
+    <br>
+    <p>Following are some well known and secure VPN services you can use:</p><br>
+    <p>>>> <a href="https://mullvad.net/" target=”_blank”>Mullvad ⭐</a></p>
+    <p>[ <a href="https://mullvad.net/en/download/vpn/windows" target=”_blank”>Windows</a> | <a href="https://mullvad.net/en/download/vpn/linux" target=”_blank”>Linux</a> | <a href="https://play.google.com/store/apps/details?id=net.mullvad.mullvadvpn" target=”_blank”>Android</a> | <a href="https://mullvad.net/en/download/vpn/macos" target=”_blank”>macOS</a> | <a href="https://apps.apple.com/app/mullvad-vpn/id1488466513" target=”_blank”>iOS</a> ]</p> <br>
+    <p>>>> <a href="https://protonvpn.com/" target=”_blank”>ProtonVPN ⭐</a></p>
+    <p>[ <a href="https://protonvpn.com/download-windows" target=”_blank”>Windows</a> | <a href="https://protonvpn.com/support/linux-vpn-setup/" target=”_blank”>Linux</a> | <a href="https://play.google.com/store/apps/details?id=ch.protonvpn.android&utm_campaign=ww-all-2a-vpn-int_site-g_acq-apps_links_free_vpn_page&utm_source=protonvpn.com&utm_medium=link&utm_content=free_vpn_page&utm_term=android" target=”_blank”>Android</a> | <a href="https://protonvpn.com/download-macos" target=”_blank”>macOS</a> | <a href="https://apps.apple.com/app/apple-store/id1437005085?pt=106513916&ct=protonvpn.com-free_vpn_page&mt=8" target=”_blank”>iOS</a> ]</p> <br>
+    <p>>>> <a href="https://www.ivpn.net/" target=”_blank”>IVPN</a></p>
+    <p>[ <a href="https://www.ivpn.net/en/apps-windows/" target=”_blank”>Windows</a> | <a href="https://www.ivpn.net/en/apps-linux/" target=”_blank”>Linux</a> | <a href="https://play.google.com/store/apps/details?id=net.ivpn.client" target=”_blank”>Android</a> | <a href="https://www.ivpn.net/en/apps-macos/" target=”_blank”>macOS</a> | <a href="https://apps.apple.com/us/app/ivpn-serious-privacy-protection/id1193122683?mt=8" target=”_blank”>iOS</a> ]</p>
+    <br>
+    <p>here's a usefull VPN comparision post btw:</p>
+    ><a href="https://www.reddit.com/r/vpns/comments/171h9qa/list_of_recommended_vpns/" target=”_blank” >https://www.reddit.com/r/vpns/comments/171h9qa/list_of_recommended_vpns/</a>
+    <p>here's a cool VPN relationship map:</p>
+    ><a href="https://kumu.io/Windscribe/vpn-relationships" target=”_blank”>https://kumu.io/Windscribe/vpn-relationships</a>
+    <br><br>
+    <p><u>Note</u>: A VPN does not make you anonymous, it simply masks your public IP address by replacing it with the VPN provider's IP address instead of your ISP. Your browsing session can still be traced back to your real identity process known as fingerprinting.</p>
+    <br>
+    <h3 id="dns">3. DNS</h3>
+    <p>DNS, or Domain Name System, is a fundamental part of how the internet works. It acts as the internet's phonebook, translating human-readable domain names (like www.google.com) into IP addresses (like 172.217.10.46), which computers use to identify each other on the network.</p>
+    <br>
+    <img src="pics/image04.png" alt="dns" height="300px">
+    <h6>illustration from <a href="https://www.geeksforgeeks.org/working-of-domain-name-system-dns-server/">here</a></h6>
+    <br>
+    <p>Without using a secure, privacy-centric DNS all your web requests can be seen in the clear. You should configure your DNS queries to be managed by a service that respects privacy and supports DNS-over-TLS, DNS-over-HTTPS or DNSCrypt.</p>
+    <br>
+    <p>By default, the DNS server your devices use is provided by your Internet provider. To start using custom DNS queries, you will need to change the DNS settings in your device or router.</p>
+    <br>
+    <img src="pics/image09.png" alt="dns-safety" style="height: 350px;">
+    <h6>illustration from <a href="https://www.cloudflare.com/learning/dns/dns-over-tls/">here</a></h6>
+    <br>
+    <p><b>Setting up DNS queries:</b></p>
+    <br>
+    <p>>>> <u>Windows:</u></p>
+    <br>
+    <ol>
+        <li>Select the <b>Start menu</b> -> <b>Settings</b>.</li>
+        <li>On <b>Network and Internet</b>, select <b>Change Adapter Options</b>.</li>
+        <li>Right-click on your active network adapter (e.g., Ethernet or Wi-Fi) and select <b>Properties</b>.</li>
+        <li>Choose <b>Internet Protocol Version 4</b>, then click <b>Properties</b>.</li>
+        <li>Select <b>"Use the following DNS server addresses."</b>, and use any DNS queries.</li>
+        <li>Select <b>Ok</b>.</li>
+    </ol>
+    <br>
+    <p>>>> <u>Linux:</u></p>
+    <br>
+        <ol>
+            <li>identify your connections</li>
+            <pre>nmcli connection show</pre>
+            <li>Modify DNS Settings: Replace <u>"your-connection-name"</u> with the actual name/UUID of your connection. And replace the <u>"1.1.1.1 1.0.0.1"</u> with any DNS service of your choice</li>
+            <pre>nmcli connection modify your-connection-name ipv4.dns "1.1.1.1 1.0.0.1"</pre>
+            <li>Once you've modified the DNS settings, restart the connection:</li>
+            <pre>nmcli connection down connection_name && nmcli connection up connection_name</pre>
+        </ol>
+        <br>
+        <p>example: </p>
+        <img src="pics/image10.png" alt="dns-cli-example">
+        <br>
+        <p>DNS leak test: </p>
+        <img src="pics/image11.png" alt="dns-output">
+        <p>These commands sets your DNS to use Cloudflare's servers (1.1.1.1 and 1.0.0.1) You can replace these addresses with other <a href="#dns-providers">DNS servers</a> of your choice.</p>
+    <br>
+    <p>>>> <u>Android:</u></p>
+    <br>
+    <ol>
+        <li>Open Settings -> Network & Internet (the setting name may vary on different phones)</li>
+        <li>Tap on <b>Private DNS</b>, then choose <b>Private DNS provider hostname</b></li>
+        <li>Enter a hostname for a secure DNS provider</li>
+        <li><b>Save</b></li>
+    </ol>
+    <br>
+    <p id="dns-providers">Following are some well known and secure DNS service Providers you can use:</p><br>
+    <p>>>> <a href="https://developers.cloudflare.com/1.1.1.1/setup/" target=”_blank”>CloudFlare ⭐</a></p>
+    <p>>>> <a href="https://nextdns.io/" target=”_blank”>NextDNS ⭐</a></p>
+    <p>>>> <a href="https://quad9.net/" target=”_blank”>Quad9</a></p>
+    <p>>>> <a href="https://adguard-dns.io/en/welcome.html" target=”_blank”>AdGuard</a></p>
+    <p>>>> <a href="https://one.one.one.one/dns/" target=”_blank”>1.1.1.1 Warp (App for Android and iOS)</a></p>
+    <br>
+    <h3 id="browser">4. Browsers</h3>
+    <p>The web browser is the most important tool for internet browsing. It's also one of the most important tools for our privacy and security. A secure web browser can protect your personal information, passwords, and browsing habits from hackers and government surveillance.</p>
+    <br>
+    <p>There are many reasons why you should care about your web browser:</p>
+    <br>
+    <ul>
+        <li><u>Protect Your Identity</u>: Using a secure browser helps prevent identity theft and protects your sensitive information.</li>
+        <li><u>ISP Monitoring</u>: Your ISP can track your online activity, leading to potential censorship or discrimination.</li>
+        <li><u>Prevent Malware</u>: A privacy-focused browser can help block malicious sites and prevent malware from compromising your system.</li>
+        <li><u>Stop Data Collection</u>: Companies can't easily collect your personal data, keeping your browsing habits private.</li>
+        <li><u>Stop Data Collection</u>: Secure browsers reduce the tracking of your online behavior, helping you avoid intrusive targeted ads.</li>
+    </ul>
+    <br>
+    <img src="pics/image05.png" alt="browser" style="height:400px;"> 
+    <br>
+    <p>With the increasing number of cyber-attacks and data breaches, <i>it is essential to have a secure browser or to make your current browser secure</i>.</p>
+    <br>
+    <p>When you visit a web page, your browser automatically shares information about its configuration, such as available fonts, browser type, and installed add-ons. If this combination of details is unique, it can potentially be used to identify and track you without relying on cookies. Even if you use a secure browser, it might still be vulnerable to leaking data on malicious websites.</p>
+    <br>
+    <p>To see what personal identity data your browser might be leaking visit:</p>
+    ><a href="https://browserleaks.com/" target=”_blank” >https://browserleaks.com/</a>
+    <p>To check what your browser is currently leaking, visit:</p>
+    ><a href="https://ipleak.net/" target=”_blank” >https://ipleak.net/</a>
+    <br><br>
+    <p>So choosing browser is essential, you cannot be using chrome and think you are secure even with VPN...</p>
+    <br>
+    <p><u>Here's an illustration I made showing which browser you should prefer based on your needs:</u></p>
+    <br>
+    <img src="pics/image06.png" alt="browsers-list">
+    <h6>[this list is kinda subjective, every browser here has its pros and cons]</h6>
+    <br>
+    <p>>>> <u>"normal" teir browsers</u></p>
+    <ul>
+        <li><a href="https://brave.com/">Brave</a></li>
+        <li><a href="https://www.mozilla.org/en-US/firefox/">Firefox</a></li>
+    </ul>
+    <p>These browsers are good for normal day-to-day usage. Need to be configured before, for making them privacy focused and secure. Install the <a href="#extensions">recommended extensions</a> btw.</p>
+    <br>
+    <p>>>> <u>"better" teir browsers</u></p>
+    <ul>
+        <li><a href="https://www.mozilla.org/en-US/firefox/">Firefox</a> (BUT HARDENED) ⭐</li>
+        <li><a href="https://librewolf.net/">LibreWolf</a></li>
+        <li><a href="https://github.com/ungoogled-software/ungoogled-chromium">ungoogled-chromium</a></li>
+    </ul>
+    <p>These Browsers are more lightweight, secure and faster in general. Might need <a href="#extensions">extensions</a></p>
+    <br>
+    <p>>>> <u>"best" teir browser (?)</u></p>
+    <ul>
+        <li><a href="https://www.torproject.org/">TOR Browser</a> (separate section detailed <a href="#tor">here</a>)</li>
+    </ul>
+    <p>This browser provides enhanced privacy, anonymity, censorship circumvention, multi-layered encryption and block trackers. And you can dvelve deeper into the internet using this (which are inaccessible with normal browsers). However, it all comes at a cost of network speed, so might not be suitable for normal usage :/</p>
+    <br>
+    <p id="extensions"><u>some extensions/addons that are important (or you might be bombarded with ads and scripts)</u></p>
+    <ul>
+        <li><a href="https://github.com/gorhill/uBlock?tab=readme-ov-file">uBlock origin</a></li>
+        <li><a href="https://github.com/sblask-webextensions/webextension-skip-redirect">Skip Redirect</a></li>
+        <li><a href="https://www.localcdn.org/">localCDN</a></li>
+    </ul>
+    <h6>[tip: The less extensions the better.]</h6>
+    <br>
+    <p>Now that you have a basic understanding of how to surf the internet more "privately" without directly compromising your personal data via browser, internet, or DNS leaks, you can achieve a basic level of anonymity. By using secure browsers, masking your IP, and opting for secure DNS providers, you can take the first steps toward protecting your online privacy.</p>
+    <br>
+    <br>
+    <br>
+    <h2 id="level2">>LEVEL 2</h2>
+    <p>(Advanced Privacy & Anonimity Measures)</p>
+    <br>
+    <h3 id="tor">1. TOR</h3>
+    <br>
+    <p>Tor works by routing your internet traffic through volunteer-operated servers, instead of making a direct connection to the site you're trying to visit. This obfuscates where the traffic is coming from, and no server in the connection path is able to see the full path of where the traffic is coming from and going to, meaning even the servers you are using to connect cannot break your anonymity.</p>
+    <img src="pics/image08.png" alt="tor-routing">
+    <br>
+    <p>When you connect to a website using Tor, your connection is routed through at least three randomly selected Tor nodes (also called relays)</p>
+    <br>
+    <p><b>Using the Tor Browser:</b></p>
+    <br>
+    <ol>
+        <li>Download the Tor Browser from the official website: <a href="https://www.torproject.org/">www.torproject.org/</a></li>
+        <li>Install the Tor Browser on your system.</li>
+        <li>aditional security measures:
+            <ul>
+                <li>Go to browser's <b>Settings</b> -> <b>Privacy & Security</b></li>
+                <li>Enable <u>Always use private browsing mode</u> & <u>Safest mode</u> in Security if its off</li>
+                <br>
+                <img src="pics/image12.png" alt="tor-setting1" style="height:350px;">
+                <br>
+                <img src="pics/image13.png" alt="tor-setting2" style="height:350px;">
+            </ul>
+        </li>
+        <li>Now click on <b>Connect</b> on the homescreen.</li>
+    </ol>
+    <br>
+    <p><u>What happens</u>: Your web traffic is encrypted and sent through several Tor relays (nodes) before reaching the destination. This process hides your IP address and location from the websites you visit.</p>
+    <br>
+    <p>You can also check your Tor Circuit on the top left corner</p>
+    <br>
+    <img src="pics/image14.png" alt="tor-circuit">
+    <br><br>
+
+    <p><b>Enhancing TOR security:</b></p>
+    <p>It's recommended that you make an effort to hide your IP address before connecting to the Tor network. You can do this by simply connecting to a VPN (through a client installed on your computer) and then accessing Tor as normal, through Tor Browser for example.</p>
+    <p>This creates a connection chain like: You → VPN → Tor → Internet</p>
+    <br>
+    <p>✅ Recommended combination:</p>
+    <ul><li><u>You → VPN → Tor → Internet</u></li></ul>
+    <br>
+    <p>❌ NOT Recommended combinations:</p>
+    <ul>
+        <li>You → Tor → VPN → Internet</li>
+        <li>You → VPN → Tor → VPN → Internet</li>
+        <li>Other configurations</li>
+    </ul>
+    <br>
+    <p>here's an Advanced overview on tor:</p>
+    <p>><a href="https://www.privacyguides.org/en/advanced/tor-overview/" target="_blank">https://www.privacyguides.org/en/advanced/tor-overview/</a></p>
+    <br>
+    <h3 id="browser-hardening">1. Browser Hardening</h3>
+
+    <script src="../script.js"></script>
+    <footer style="text-align: center; margin:25px">[<a href="#top">top</a>]</footer>
+</body>
+</html>
