@@ -19,34 +19,43 @@
     </div>
     <br>
     <h1>Different Levels of Privacy for Online Anonymity</h1>
-    <p class="dates">24 Aug, 2024</p> 
+    <p class="dates">1 Sept, 2024</p> 
     <br>
     <p><b>Disclaimer:</b> This article is for educational purposes only. It is <u>not</u> meant to promote or encourage misuse of privacy tools. Readers are responsible for how they use this information.</p>
     <br>
-    <h2>Table of Contents:</h2>
+    <h2 id="table-of-contents">Table of Contents:</h2>
     <br>
     <ul>
         <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#level1">LEVEL 1</a>
+        <li><a href="#level0">LEVEL 0</a>
+            <li><a href="#level1">LEVEL 1</a>
+                <ul>
+                    <li><a href="#public-wifi">Using Public Wifi</a></li>
+                    <li><a href="#vpn">VPNs</a></li>
+                    <li><a href="#dns">Secure DNS</a></li>
+                    <li><a href="#browser">Browser</a></li>
+                </ul>
+            </li>
+            <li><a href="#level2">LEVEL 2</a>
+                <ul>
+                    <li><a href="#encrypted-communication">Encrypted Communication</a></li>
+                    <li><a href="#browser-hardening">Browser Hardening (Firefox)</a></li>
+                    <li><a href="#tor">TOR</a></li>
+                    <li><a href="#virtual-machine">Virtual Machine</a></li>
+                </ul>
+            </li>
+        <li><a href="#level3">LEVEL 3</a>
             <ul>
-                <li><a href="#public-wifi">Using Public Wifi</a></li>
-                <li><a href="#vpn">VPNs</a></li>
-                <li><a href="#dns">DNS</a></li>
-                <li><a href="#browser">Browser</a></li>
+                <li><a href="#os">Operating System</a></li>
+                <li><a href="#physical-measures">Physical Measures</a></li>
             </ul>
         </li>
-        <li><a href="#introduction">LEVEL 2</a>
-            <ul>
-                <li><a href="#tor">TOR</a></li>
-            </ul>
-        </li>
-        <li><a href="#introduction">LEVEL 3</a></li>
-        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
     </ul>
-    <br> <br>
-    <h2 id="introduction">>Introduction</h2>
+    <br> <br> <br>
+    <h2 id="introduction" class="section-titles"><u>>Introduction</u></h2>
     <br>
-    <p><u><b>TL;DR:</b> This article is a simple guide that will help individuals understand and achieve different levels of online privacy and anonymity easily.</u></p>
+    <p><u><b>TL;DR:</b> This article is a simple guide that will help individuals understand and achieve different levels of online privacy and anonymity easily. Readers can also jump to the specific LEVEL that matches their privacy needs and learn practical steps to enhance their online security.</u></p>
     <br>
     <p>Hello World, in today's interconnected world, nearly everything we do is linked to the internet. This connectivity allows large corporations and governments that dominate this digital space to monitor and record almost every online activity. All of this data, once collected, is stored somewhere, creating the risk of it being breached or used against us.</p> <br>
     <img src="pics/image01.png" alt="internet" height="200px">
@@ -56,7 +65,7 @@
     <br>
     <p>While many websites use this data for personalized advertisements, to sell to data brokers, or to enhance customer experiences, not all websites have good intentions. Some might misuse our data for malicious purposes.</p>
     <br>
-    <h3>Why should I care about privacy?</h3>
+    <h3>Why should you care about privacy?</h3>
     <br>
     <p>Everyone has some expectation of privacy. We don't want to indiscriminately share every single aspect of our lives with everyone else. And the fact that you are on this page means you already do care or are eager to learn more.</p>
     <br>
@@ -90,10 +99,38 @@
     </ul>
     <br>
     <p>So lets go through different levels of measures you can take for getting more secure online...</p>
-    <br><br><br>
-    <h2 id="level1">>LEVEL 1</h2>
-    <p>(Simple, Secure and Basic privacy measures)</p>
     <br>
+    <p>Or if you want, you could jump to specific <a href="#table-of-contents">LEVEL or TOPIC</a> directly that matched your needs. And learn about that specifically.</p>
+    <br><br><br>
+    <h2 id="level0" class="section-titles"><u>>LEVEL 0</u></h2>
+    <p>(Basic steps you can take right now)</p>
+    <br><br>
+    <p>Before diving into advanced privacy and security measures, start with these basic actions to protect your online activities:</p>
+    <br>
+    <ul>
+        <li><b>Strong Passwords:</b> Create strong & unique passwords for all accounts, and use a trusted password manager to keep track of them securely.</li>
+        <br>
+        <li><b>Enable Two-Factor Authentication (2FA):</b> Enable 2FA on your accounts wherever possible.</li>
+        <br>
+        <li><b>Open Source Softwares:</b> Try to shift on open source alternatives of normal softwares as much as possible.</li>
+        <br>
+        <li><b>Disable services:</b> Disable services that could potentially leak your data, like location.</li>
+        <br>
+        <li><b>Limit Sharing Personal Information:</b> Avoid sharing sensitive personal information on social media or public forums.</li>
+        <br>
+        <li><b>Don't Click on Unknown Links:</b> Be cautious of clicking on links from unknown sources. They could lead to phishing sites or malware.</li>
+        <br>
+        <li><b>Opt-Out of Data Collection:</b> Opt-out of data collection practices on websites and services when possible.</li>
+
+
+
+    </ul>
+    
+    
+    <br><br><br>
+    <h2 id="level1" class="section-titles"><u>>LEVEL 1</u></h2>
+    <p>(Simple, Secure and Basic privacy measures)</p>
+    <br><br>
     <h3 id="public-wifi">1. Using Public Wifi</h3>
     <br>
     <p>If you're knowledgeable about internet privacy and anonymity, then you already know that this is a no brainer. Surfing the web using your own internet connection is almost like giving your real name and address to random people you meet on street. Even using VPN or Proxies can be considered <u>risky</u>, as your real IP address is still visible on the other end, posing a risk of compromise.</p>
@@ -102,7 +139,7 @@
     <br>
     <p><u>NOTE</u>: Always be cautious about which Wi-Fi network you connect to. Avoid connecting to any random public Wi-Fi, as it may expose you to risks like packet sniffing, data capture, and man-in-the-middle (MITM) attacks.</p>
     <br>
-    <img src="pics/image07.png" alt="public-wifi-danger-pic" style="height:400px;">
+    <img src="pics/image07.png" alt="public-wifi-danger-pic">
     <br>
     <p>So make sure you're connecting to secure Wifi.</p>
     <br>
@@ -127,7 +164,7 @@
     ><a href="https://kumu.io/Windscribe/vpn-relationships" target=”_blank”>https://kumu.io/Windscribe/vpn-relationships</a>
     <br><br>
     <p><u>Note</u>: A VPN does not make you anonymous, it simply masks your public IP address by replacing it with the VPN provider's IP address instead of your ISP. Your browsing session can still be traced back to your real identity process known as fingerprinting.</p>
-    <br>
+    <br> <br>
     <h3 id="dns">3. DNS</h3>
     <p>DNS, or Domain Name System, is a fundamental part of how the internet works. It acts as the internet's phonebook, translating human-readable domain names (like www.google.com) into IP addresses (like 172.217.10.46), which computers use to identify each other on the network.</p>
     <br>
@@ -136,12 +173,12 @@
     <br>
     <p>Without using a secure, privacy-centric DNS all your web requests can be seen in the clear. You should configure your DNS queries to be managed by a service that respects privacy and supports DNS-over-TLS, DNS-over-HTTPS or DNSCrypt.</p>
     <br>
-    <p>By default, the DNS server your devices use is provided by your Internet provider. To start using custom DNS queries, you will need to change the DNS settings in your device or router.</p>
-    <br>
-    <img src="pics/image09.png" alt="dns-safety" style="height: 350px;">
+    <img src="pics/image09.png" alt="dns-safety">
     <h6>illustration from <a href="https://www.cloudflare.com/learning/dns/dns-over-tls/">here</a></h6>
     <br>
-    <p><b>Setting up DNS queries:</b></p>
+    <p>By default, the DNS server your devices use is provided by your Internet provider. To start using custom encrypted DNS services, you will need to change the DNS settings in your device or router.</p>
+    <br>
+    <p><b>Setting up encrypted DNS queries:</b></p>
     <br>
     <p>>>> <u>Windows:</u></p>
     <br>
@@ -157,7 +194,7 @@
     <p>>>> <u>Linux:</u></p>
     <br>
         <ol>
-            <li>identify your connections</li>
+            <li>Identify your connections</li>
             <pre>nmcli connection show</pre>
             <li>Modify DNS Settings: Replace <u>"your-connection-name"</u> with the actual name/UUID of your connection. And replace the <u>"1.1.1.1 1.0.0.1"</u> with any DNS service of your choice</li>
             <pre>nmcli connection modify your-connection-name ipv4.dns "1.1.1.1 1.0.0.1"</pre>
@@ -182,12 +219,12 @@
     </ol>
     <br>
     <p id="dns-providers">Following are some well known and secure DNS service Providers you can use:</p><br>
-    <p>>>> <a href="https://developers.cloudflare.com/1.1.1.1/setup/" target=”_blank”>CloudFlare ⭐</a></p>
     <p>>>> <a href="https://nextdns.io/" target=”_blank”>NextDNS ⭐</a></p>
+    <p>>>> <a href="https://developers.cloudflare.com/1.1.1.1/setup/" target=”_blank”>CloudFlare ⭐</a></p>
     <p>>>> <a href="https://quad9.net/" target=”_blank”>Quad9</a></p>
     <p>>>> <a href="https://adguard-dns.io/en/welcome.html" target=”_blank”>AdGuard</a></p>
     <p>>>> <a href="https://one.one.one.one/dns/" target=”_blank”>1.1.1.1 Warp (App for Android and iOS)</a></p>
-    <br>
+    <br> <br>
     <h3 id="browser">4. Browsers</h3>
     <p>The web browser is the most important tool for internet browsing. It's also one of the most important tools for our privacy and security. A secure web browser can protect your personal information, passwords, and browsing habits from hackers and government surveillance.</p>
     <br>
@@ -201,7 +238,7 @@
         <li><u>Stop Data Collection</u>: Secure browsers reduce the tracking of your online behavior, helping you avoid intrusive targeted ads.</li>
     </ul>
     <br>
-    <img src="pics/image05.png" alt="browser" style="height:400px;"> 
+    <img src="pics/image05.png" alt="browser"> 
     <br>
     <p>With the increasing number of cyber-attacks and data breaches, <i>it is essential to have a secure browser or to make your current browser secure</i>.</p>
     <br>
@@ -252,10 +289,98 @@
     <br>
     <br>
     <br>
-    <h2 id="level2">>LEVEL 2</h2>
-    <p>(Advanced Privacy & Anonimity Measures)</p>
+    <h2 id="level2" class="section-titles"><u>>LEVEL 2</u></h2>
+    <p>(Move More Towards Anonimity)</p>
     <br>
-    <h3 id="tor">1. TOR</h3>
+    <br>
+    <h3 id="encrypted-communication">1. Encrypted Communication</h3>
+    <br>
+    <p>When communicating online, it's crucial to use privacy-oriented tools rather than conventional ones. Many companies retain logs or sell your data for advertising purposes, which compromises your privacy.</p>
+    <br>
+    <img src="pics/image17.png" alt="privacy-policies">
+    <br><br>
+    <p>To ensure your communications remain secure and private, it's essential to choose tools that prioritize encryption and do not log your data.</p>
+    <br>
+    <p><b>Encrypted Messaging Apps:</b></p>
+    <br>
+    <p>If you're going to text, might as well text on apps that ensure that your communications remain private, with the company unable to access your messages or calls, and no ads or trackers involved. Here are some recommended apps:</p>
+    <ul>
+        <li><a href="https://getsession.org/">Session</a></li>
+        <li><a href="https://briarproject.org/">Briar</a></li>
+        <li><a href="https://signal.org/">Signal</a> (needs phone number)</li>
+    </ul>
+    <br>
+    <p><b>Secure Email Services:</b></p>
+    <br>
+    <p>Using conventional email services like Gmail can compromise your privacy, as they often log your activities. For better security, choose an email provider that doesn't track or access your inbox. Here are some privacy-focused options:</p>
+    <ul>
+        <li><a href="https://proton.me/mail">ProtonMail</a></li>
+        <li><a href="https://tuta.com/">Tuta</a> (formerly  Tutanota)</li>
+    </ul>
+    <br>
+    <p><u>Note</u>: These services and apps are only recommended for secure <i>communication</i>, but using them for other online activities doesn't guarantee anonymity. Like sharing personal information through these email services can still expose your identity.</p>
+    <br>
+    <br>
+    <h3 id="browser-hardening">2. Browser Hardening (Firefox)</h3>
+    <br>
+    <p>Since we're now moving more towards "anonymity" from this LEVEL 2 section, it's essential that you have totally secure, tracking proof browser even for normal surfing.</p>
+    <br>
+    <p>Even if you add extensions to strengthen Firefox even more, the default settings of Firefox are not the best choice to be a privacy respecting browser. So browser voluntarily sends information about its configuration, which can be used for <a href="https://en.wikipedia.org/wiki/Device_fingerprint" target="_blank">Device or Browser fingerprinting</a>. Hence, no privacy.</p>
+    <br>
+    <p>Hardening Firefox involves changing its configurations using a file called user.js. This process enhances security and privacy by reducing the browser's attack surface, minimizing data leaks, and preventing unwanted tracking through customized settings.</p>
+    <br>
+    <p><b>Basic settings (kind of prerequisites):</b></p>
+    <br>
+    <ol>
+        <li>Open Settings<ul>
+            <li>Change default search engine from Google to DuckDuckGo.</li>
+        </ul></li>
+        <li>Open Privacy & Security Section:
+            <ul>
+                <li>In "Enhanced Tracking Protection", select <u>Custom</u> and check all options. <br> <img src="pics/image15.png" alt="FF-settings1"></li>
+                <li>In "Website Privacy Preferences", check <u>Send websites a “Do Not Track” request</u> <br> <img src="pics/image16.png" alt="FF-settings2"></li>
+                <li>In "Permissions", check <u>block new requests</u> for every utility option available</li>
+                <li>In "Firefox Data Collection and Use", <u>UNCHECK everything</u></li>
+                <li>In "HTTPS-Only Mode", check <u>Enable HTTPS-Only Mode in all windows</u></li>
+                <li>In "Enable DNS over HTTPS using:", check <u>Max Protection</u> and select <a href="#dns-providers">DNS service</a></li>
+            </ul>
+        </li>
+    </ol>
+    <br>
+    <p><u>Note</u>: Some websites may break due to these settings, as they rely on resources like cookies, scripts etc that are being blocked.</p>
+    <br>
+    <p><b>Advanced settings:</b></p>
+    <br>
+    <p>We'll set up <u>user.js</u> file which contains all the configurations and preferences of the browser. You can <u>create your own custom user.js file</u> using <a href="https://ffprofile.com/">Firefox Profilemaker</a> or use pre-existing ones from below:</p>
+    <br>
+    pre-made privacy focused <u>user.js</u> files:
+    <ul>
+        <li><a href="https://github.com/yokoffing/Betterfox" target="_blank">Betterfox's</a>    (secure, less site breakage)</li>
+        <li><a href="https://github.com/arkenfox/user.js/" target="_blank">arkenfox's</a>   (may need some tweaking)</li>
+        <li><a href="https://codeberg.org/Narsil/user.js/src/branch/main/desktop" target="_blank">Narsil's</a>  (super secure, more site breakage)</li>
+    </ul>
+    <br>
+    <p><u>How to use user.js files:</u></p>
+    <br>
+    <ol>
+        <li>In firefox, open this url "<u>about:profiles</u>"</li>
+        <li>Click on <u>Create a New Profile</u>, and create one with any name</li>
+        <li>Navigate to the section of that profile you just created on same page, and open its "<u>Root Directory</u>"</li>
+        <li>You can deleted everything from this new profile's directory.</li>
+        <li>Add the "<u>user.js</u>" file here, that you created/downloaded.</li>
+        <li>Once added, restart the browser.</li>
+        <li>Install the <a href="#extensions">recommended extensions</a> once the profiles are set up</li>
+    </ol>
+    <br>
+    <p>Using this, you can also create multiple different profiles with different level of security too.</p>
+    <br>
+    <p>here's an usefull video on firefox hardening:</p>
+    <p>><a href="https://youtu.be/Fr8UFJzpNls?si=PcpTKuZ3WyXBm3Ah" target="_blank">https://youtu.be/Fr8UFJzpNls?si=PcpTKuZ3WyXBm3Ah</a></p>
+    <br>
+    <p><u>Note:</u> You just learnt firefox hardening, this doesn't make you anonymous, this process just lets your browser be safer to work on without any risk of data leakage. You need to combine these practices with other privacy measures such as using a VPN, Tor, and secure communication tools.</p>
+    <br>
+    <br>
+    <h3 id="tor">3. TOR</h3>
     <br>
     <p>Tor works by routing your internet traffic through volunteer-operated servers, instead of making a direct connection to the site you're trying to visit. This obfuscates where the traffic is coming from, and no server in the connection path is able to see the full path of where the traffic is coming from and going to, meaning even the servers you are using to connect cannot break your anonymity.</p>
     <img src="pics/image08.png" alt="tor-routing">
@@ -272,9 +397,9 @@
                 <li>Go to browser's <b>Settings</b> -> <b>Privacy & Security</b></li>
                 <li>Enable <u>Always use private browsing mode</u> & <u>Safest mode</u> in Security if its off</li>
                 <br>
-                <img src="pics/image12.png" alt="tor-setting1" style="height:350px;">
+                <img src="pics/image12.png" alt="tor-setting1">
                 <br>
-                <img src="pics/image13.png" alt="tor-setting2" style="height:350px;">
+                <img src="pics/image13.png" alt="tor-setting2">
             </ul>
         </li>
         <li>Now click on <b>Connect</b> on the homescreen.</li>
@@ -286,7 +411,8 @@
     <br>
     <img src="pics/image14.png" alt="tor-circuit">
     <br><br>
-
+    <p>You can connect via Tor, but <i>it does not guarantee complete anonymity</i>. If the same person controls the bridge relay, exit relay, or all three relays in the Tor network, they could trace your traffic back to your IP address. While this is unlikely, it is technically possible.</p>
+    <br>
     <p><b>Enhancing TOR security:</b></p>
     <p>It's recommended that you make an effort to hide your IP address before connecting to the Tor network. You can do this by simply connecting to a VPN (through a client installed on your computer) and then accessing Tor as normal, through Tor Browser for example.</p>
     <p>This creates a connection chain like: You → VPN → Tor → Internet</p>
@@ -304,8 +430,154 @@
     <p>here's an Advanced overview on tor:</p>
     <p>><a href="https://www.privacyguides.org/en/advanced/tor-overview/" target="_blank">https://www.privacyguides.org/en/advanced/tor-overview/</a></p>
     <br>
-    <h3 id="browser-hardening">1. Browser Hardening</h3>
-
+    <br>
+    <h3 id="virtual-machine">4. Virtual Machine</h3>
+    <br>
+    <p>A virtual machine (VM) is a sandboxed operating system, running within your current system. Useful for compartmentalisation and safely testing software, or handling potentially malicious files.</p>
+    <br>
+    <img src="pics/image18.png" alt="virtual machine">
+    <br> <br>
+    <p>Simple put, virtual machine is like having a <u>virtual computer within your computer</u>.</p>
+    <br>
+    <p>If you're dealing with risky files or websites and can't afford to compromise your personal computer, using a virtual machine is recommended. Here are some well-known virtual machine hypervisors:</p>
+    <ul>
+        <li><a href="https://www.virtualbox.org/">VirtualBox</a></li>
+        <li><a href="https://www.vmware.com/">VMWare</a> (NOT open source)</li>
+    </ul>
+    <br>
+    <p>Using virtual machine, you can work with different kind operating systems, enhance your security, break stuff, learn hacking safely and many more.</p>
+    <br>
+    <p>Now that you have solid knowledge about intermediate level of security precaution. You can enhance these up by combining these steps with previous level's steps as well, like using TOR over VPN and stuff like adding additional layers.</p>
+    <br>
+    <br>
+    <br>
+    <h2 id="level3" class="section-titles">>LEVEL 3</h2>
+    <p>(Super Privacy & Anonimity Measures For Ultra Paranoids)</p>
+    <br>
+    <br>
+    <h3 id="os">1. Operating System</h3>
+    <br>
+    <p>Now that you're at LEVEL 3 and aiming for total anonymity, this section will focus on operating system-level strategies to enhance your privacy and security.</p>
+    <br>
+    <p>>DO NOT USE WINDOWS, as its heavily bloated, collects data, integrated with Microsoft Services, easily exploitable, and not even open source so it can easily track what you're doing and you won't even know...</p>
+    <br>
+    <p>>use linux instead, its open source</p>
+    <br>
+    <p><u>Following are some heavily security oriented linux distributions you can prefer:</u></p>
+    <img src="pics/image19.png" alt="secure-linux-distro-list">
+    <p><b>Tails OS:</b></p>
+    <br>
+    <p>Tails stands for <b>The Amnesic Incognito Live System</b>. It's a bootable Live Operating System running from a USB stick that is designed for leaving no traces. It ensures that all connections are routed through the Tor network by default.</p>
+    <br>
+    <p>You insert the Tails USB stick into your laptop, you'll have a fully functional operating system focused on privacy. As soon as you shut down the computer or remove that USB stick directly, everything will be gone unless you saved it somewhere.</p>
+    <br>
+    <p>How to use Tails:</p>
+    <ol>
+        <li>Grab a USB stick with atleast 8GB of memory.</li>
+        <li>Refer the following <u>official documentation</u> for installing and running tails, its very well structured: <br> ><a href="https://tails.net/install/index.en.html">https://tails.net/install/index.en.html</a></li>
+        <li>Once booting tails and connecting to wifi, the <i>Tor Connection assistant</i> interface will appear: <br> <img src="pics/image20.png" alt="tor-assis"></li>
+        <li>Select your prefered setting and connct to TOR.</li>
+        <li>Open tor browser, settings -> Privacy & Security, and in <u>Onion Services</u> select "Always".</li>
+        <li>In <u>Security level</u> select either "Safer" OR "Safest" option.</li>
+    </ol>
+    <br>
+    <p>Now you are using Tails OS and connected to TOR. Everytime you make different connections to various things on the internet, your TOR circuit will change.</p>
+    <img src="pics/image21.png" alt="tor-ip-change">
+    <br>
+    <br>
+    <p>Removing the USB stick will erase everything you did, including the settings that were changed.</p>
+    <br>
+    <p><b>Whonix:</b></p>
+    <br>
+    <p>Whonix is an anonymous operating system that runs like an app and routes all Internet traffic through the Tor anonymity network. It offers privacy protection and anonymity online and is available for all major operating systems.</p>
+    <br>
+    <p>>Unlike Tails, Whonix is specifically designed to work in a <a href="#virtual-machine">virtual machine (VM)</a> environment.</p>
+    <br>
+    <p>Whonix consists of two VMs: the <a href="https://www.whonix.org/wiki/Whonix-Gateway">Whonix-Gateway</a> and the <a href="https://www.whonix.org/wiki/Whonix-Workstation">Whonix-Workstation</a>. The former runs Tor processes and acts as a gateway, while the latter runs user applications on a completely isolated network. This innovative architecture allows for maximum privacy, keeps applications in check and makes DNS leaks impossible.</p>
+    <br>
+    <img src="pics/image22.png" alt="whonix-working">
+    <h6>illustration from <a href="https://www.whonix.org/wiki/About">here</a></h6>
+    <br>
+    <p>Refer the following official documentation to install Whonix on your VM:</p>
+    ><a href="https://www.whonix.org/wiki/Download">https://www.whonix.org/wiki/Download</a>
+    <br><br>
+    <p><b>Qubes OS:</b></p>
+    <br>
+    <p>Qubes OS allows for the creation and management of isolated compartments called qubes. <b>Each piece of software runs in its own compartment</b>, as if it were installed on a separate physical machine, using advanced virtualization techniques.</p>
+    <br>
+    <p>This level of compartmentalization makes Qubes OS extremely secure. If one piece of software becomes infected, it won't affect others since they are isolated in different qubes.</p>
+    <br>
+    <p>Qubes OS can run multiple operating systems simultaneously within different qubes, including Fedora, Debian, and Windows, providing flexibility and enhanced security.</p>
+    <br>
+    <p>Here's an illustration showing how qubes os uses compartmentalization for isolating different softwares from each other:</p>
+    <img src="pics/image23.png" alt="qubes-img">
+    <h6>illustration from <a href="https://www.qubes-os.org/intro/">here</a></h6>
+    <br>
+    <p>Download Qubes OS from its official website:</p>
+    ><a href="https://www.qubes-os.org/downloads/">https://www.qubes-os.org/downloads/</a>
+    <br>
+    <br>
+    <p>The drawback in this could be its system requirements. Its kinda heavy on our machine, specially if ran on <a href="#virtual-machine">Virtual Machine</a>. As its <u>recommended requirements</u> are:</p>
+    <ul>
+        <li><u>CPU</u>: 64-bit Intel or AMD processor</li>
+        <li><u>Memory</u>: 16 GB RAM</li>
+        <li><u>Storage</u>: 128 GB free space</li>
+    </ul>
+    <br>
+    <p><b>Qubes-Whonix (Whonix over Qubes):</b></p>
+    <br>
+    <p>In this configuration Whonix runs on top of Qubes inside virtual machines (VMs), just like any other OS on the same platform. This configuration provides advanced security and anonymity.</p>
+    <br>
+    <p>To use <b>Qubes-Whonix</b>, start by installing Qubes OS on your physical computer. Once Qubes is set up, you'll add two Whonix components: <u>the Whonix Gateway</u> and <u>the Whonix Workstation</u>. These templates allow for the customization and creation of multiple Whonix-Gateway ProxyVMs and Whonix-Workstation AppVMs.</p>
+    <br>
+    <p>This configuration provides enhanced compartmentalization of your activities, which significantly improves privacy and security by isolating different tasks within separate, secure environments.</p>
+    <br>
+    <p>read more about this in details here:</p>
+    <p>><a href="https://www.whonix.org/wiki/Qubes" target="_blank">https://www.whonix.org/wiki/Qubes</a></p>
+    <br>
+    <br>
+    <h3 id="physical-measures">2. Physical Measures</h3>
+    <br>
+    <p>Here are some <b>PHYSICAL</b> actions you can take for anonymization if you are super paranoids about your privacy:</p>
+    <br>
+    <ul>
+        <li><b>Buy a Separate System:</b> Invest in a separate laptop or system dedicated solely to anonymous activities. (used could work)</li>
+        <br>
+        <li><b>Physically Disable Hardware:</b> Physically remove the camera, and mic of the system.</li>
+        <br>
+        <li><b>Choose the Right OS:</b> Install appropriate <a href="#os">operating system</a>. AVOID WINDOWS or any other closed source OS.</li>
+        <br>
+        <li><b>Debloat the OS:</b> Remove any unnecessary software and services that might leak data or reduce security.</li>
+        <br>
+        <li><b>Network Isolation: </b>Consider using a separate network connection for your anonymous activities, such as a dedicated mobile hotspot or public Wi-Fi.</li>
+        <br>
+        <li><b>Avoid Personal Accounts: </b>Never use personal accounts and identity in this system that could potentially be backtracked to you.</li>
+        <br>
+        <li><b>Do not use your own email:</b> Kinda similar to previous point, but don't use your own email. Use services like <a href="https://temp-mail.org/en/">temp mail</a> instead.</li>
+        <br>
+        <li><b>Regular Maintenance:</b> Periodically reset the system, wiping all data to ensure no traces of your activities remain.</li>
+        <br>
+        <li><b>Avoid Biometrics:</b> Do not use fingerprint or facial recognition for authentication, as these can be linked to your physical identity.</li>
+    </ul>
+    <br>
+    <p>Combine these with all possible techniques of previous levels, and you should have a solid anonymous and secure presence on the internet.</p>
+    <br>
+    <br>
+    <br>
+    <h2 id="conclusion" class="section-titles"><u>>Conclusion</u></h2>
+    <br>
+    <p>In this digital era, achieving 100% online anonymity is nearly impossible. However, you can significantly enhance your privacy and maintain a certain level of anonymity by taking control of your online actions. In this article, you explored various methods and hierarchy of techniques that can make you more secure and private online, While it may not guarantee complete 100% but atleast 75% anonymity...</p>
+    <br>
+    <p>I will keep updating this article time to time, As this is a very vast topic.</p>
+    <br>
+    <br>
+    <br>
+    <h2 id="refrences" class="section-titles"><u>>Refrences</u></h2>
+    <p>><a href="https://anonymousplanet.org/">https://anonymousplanet.org/</a></p>
+    <p>><a href="https://www.privacytools.io/">https://www.privacytools.io/</a></p>
+    <p>><a href="https://www.privacyguides.org/en/advanced/tor-overview/">https://www.privacyguides.org/en/advanced/tor-overview/</a></p>
+    <p>><a href="https://developers.cloudflare.com/1.1.1.1/">https://developers.cloudflare.com/1.1.1.1/</a></p>
+    <p>><a href="https://spyboy.blog/2023/08/26/achieving-online-anonymity-a-comprehensive-guide/">https://spyboy.blog/2023/08/26/achieving-online-anonymity-a-comprehensive-guide/</a></p>
     <script src="../script.js"></script>
     <footer style="text-align: center; margin:25px">[<a href="#top">top</a>]</footer>
 </body>

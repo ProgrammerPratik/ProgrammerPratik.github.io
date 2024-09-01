@@ -86,6 +86,9 @@ a:hover {
 .dates{
     color:darkslategray;
 }
+.section-titles{
+    color: tomato;
+}
   /* mediaquery css */
   @media screen and (max-width: 1200px){ 
 
