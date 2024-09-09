@@ -47,6 +47,7 @@
         <li><a href="#level3">LEVEL 3</a>
             <ul>
                 <li><a href="#os">Operating System</a></li>
+                <li><a href="#pgp">PGP</a></li>
                 <li><a href="#physical-measures">Physical Measures</a></li>
             </ul>
         </li>
@@ -114,15 +115,21 @@
         <br>
         <li><b>Open Source Softwares:</b> Try to shift on open source alternatives of normal softwares as much as possible.</li>
         <br>
-        <li><b>Disable services:</b> Disable services that could potentially leak your data, like location.</li>
+        <li><b>Disable services:</b> Disable services that could potentially leak your data, like location, storage access etc.</li>
         <br>
-        <li><b>Limit Sharing Personal Information:</b> Avoid sharing sensitive personal information on social media or public forums.</li>
+        <li><b>Limit Sharing Personal Information:</b> Avoid sharing sensitive personal information on social media or public forums like real names, emails, phone numbers etc.</li>
+        <br>
+        <li><b>Use pseudonyms:</b> Use aliases online if possible, avoid using real identity.</li>
+        <br>
+        <li><b>Emails and Phone numbers:</b> Stop linking your REAL emails and phone numbers to unnecessary websites or services.</li>
         <br>
         <li><b>Don't Click on Unknown Links:</b> Be cautious of clicking on links from unknown sources. They could lead to phishing sites or malware.</li>
         <br>
         <li><b>Opt-Out of Data Collection:</b> Opt-out of data collection practices on websites and services when possible.</li>
-
-
+        <br>
+        <li><b>Mask Your IP:</b> Mask your IP address by using Tor, VPN, proxies. Depending on what you're actually doing you might want to combine some of these. <i>more on this later...</i></li>
+        <br>
+        <li><b>Be Aware:</b> Kind of stupid thing to say. But don't be stupid, be aware what you're doing and where you're visiting.</li>
 
     </ul>
     
@@ -536,7 +543,34 @@
     <p>><a href="https://www.whonix.org/wiki/Qubes" target="_blank">https://www.whonix.org/wiki/Qubes</a></p>
     <br>
     <br>
-    <h3 id="physical-measures">2. Physical Measures</h3>
+    <h3 id="pgp">2. PGP</h3>
+    <br>
+    <p>PGP is short for <b>Pretty Good Privacy</b>, a security program that enables users to communicate securely by decrypting and encrypting messages, authenticating messages through digital signatures, and encrypting files.</p>
+    <br>
+    <p>How it works:</p>
+    <br>
+    <p>> Receiver generates two keys (<b>public & private key</b>).</p>
+    <p>> Receiver sends you public key and keeps private key.</p>
+    <p>> You encrypt the message with that receiver's public key.</p>
+    <p>> You send the encrypted message to receiver.</p>
+    <p>> Receiver decrypts the message using his private key.</p>
+    <br>
+    <p>In this case, Even if someone intercepts the encrypted message and your public key, they can't decrypt it without the receiver's private key.</p>
+    <br>
+    <p>Here's an illustration showing the use of PGP:</p>
+    <img src="pics/image24.png" alt="pgp-diagram">
+    <h6>illustration from <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">here</a></h6>
+    <br>
+    <p>You can use <a href="https://www.openpgp.org/software/kleopatra/">Kleopatra</a> for managing PGP keys.</p>
+    <br>
+    <p>Kleopatra is a certificate manager that helps you encrypt, decrypt, sign, and verify emails and files using PGP/GPG encryption.</p>
+    <br>
+    <p><b>How it works:</b> It allows you to create and manage PGP key pairs (public and private keys). You can encrypt files or emails using someone's public key and decrypt them with your private key, ensuring that only the intended recipient can read the data.</p>
+    <br>
+    <p>Kleopatra typically comes pre-installed on secure operating systems like tails...</p>
+    <br>
+    <br>
+    <h3 id="physical-measures">3. Physical Measures</h3>
     <br>
     <p>Here are some <b>PHYSICAL</b> actions you can take for anonymization if you are super paranoids about your privacy:</p>
     <br>
@@ -551,13 +585,21 @@
         <br>
         <li><b>Network Isolation: </b>Consider using a separate network connection for your anonymous activities, such as a dedicated mobile hotspot or public Wi-Fi.</li>
         <br>
-        <li><b>Avoid Personal Accounts: </b>Never use personal accounts and identity in this system that could potentially be backtracked to you.</li>
+        <li><b>Avoid Personal Accounts: </b>Never use personal accounts and identity in this system that could potentially be backtracked to you. Don't use fake info that is even remotely related/connected to REAL YOU.</li>
         <br>
         <li><b>Do not use your own email:</b> Kinda similar to previous point, but don't use your own email. Use services like <a href="https://temp-mail.org/en/">temp mail</a> instead.</li>
+        <br>
+        <li><b>Encrypt your disks:</b> Keep your physical disks (like HDD, SSD) encrypted.</li>
         <br>
         <li><b>Regular Maintenance:</b> Periodically reset the system, wiping all data to ensure no traces of your activities remain.</li>
         <br>
         <li><b>Avoid Biometrics:</b> Do not use fingerprint or facial recognition for authentication, as these can be linked to your physical identity.</li>
+        <br>
+        <li><b>Stylometry:</b> Even your style of writing can be used for fingerprinting. To solve this, I can say "20%" OR "20 percent" OR "twenty percent", each of these are different, and can be used to mask identity.</li>
+        <br>
+        <li><b>Don't talk too much:</b> <i>Peoples</i> like to brag, don't be one of those <i>peoples</i>.</li>
+        <br>
+        <li><b>Know your limits:</b> If something feels wrong, that's becuase it probably is. Trust your gut, know when to step back. Don't dwelve too deep.</li>
     </ul>
     <br>
     <p>Combine these with all possible techniques of previous levels, and you should have a solid anonymous and secure presence on the internet.</p>
@@ -581,6 +623,7 @@
     <p>><a href="https://www.privacyguides.org/en/advanced/tor-overview/">https://www.privacyguides.org/en/advanced/tor-overview/</a></p>
     <p>><a href="https://developers.cloudflare.com/1.1.1.1/">https://developers.cloudflare.com/1.1.1.1/</a></p>
     <p>><a href="https://spyboy.blog/2023/08/26/achieving-online-anonymity-a-comprehensive-guide/">https://spyboy.blog/2023/08/26/achieving-online-anonymity-a-comprehensive-guide/</a></p>
+    <p>><a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">https://en.wikipedia.org/wiki/Pretty_Good_Privacy</a></p>
     <script src="../script.js"></script>
     <footer style="text-align: center; margin:25px">[<a href="#top">top</a>]</footer>
 </body>
