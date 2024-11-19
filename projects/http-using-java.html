@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>HTTP implementation using Java</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="full-article">
+        <h1>PROJECT: HTTP Implementation using Java</h1>
+        <p class="dates">19 Nov, 2024</p>
+        <br>
+        <p>Repository link: <a href="https://github.com/ProgrammerPratik/HTTP-server-implementation">https://github.com/ProgrammerPratik/HTTP-server-implementation</a></p>
+        <br>
+        <h3>Overview:</h3>
+        <p>This project is a simple yet robust HTTP server using Java to handle basic HTTP requests and serve predefined routes. The server supports multithreading, allowing it to handle multiple client connections simultaneously. It's an excellent project for understanding the basics of HTTP, server programming, and multithreading in Java.</p>
+        <br>
+        <video controls>
+            <source src="https://github.com/user-attachments/assets/4bdf55c0-ed12-4f54-a0c1-c34ab0648a12" type="video/mp4">Your browser does not support the video tag.</video>     
+            <br>
+            <br>
+            <h3>features:</h3>
+            <ul>
+                <li><b>Multithreaded Handling:</b> Supports simultaneous client connections.</li>
+                <li><b>Default Routes:</b> <ul>
+                    <li><code>/</code>: A welcoming page with the current date and time.</li>
+                    <li><code>/time</code>: Returns the current time in JSON format.</li>
+                    <li><code>/health</code>: Reports the server's health status.</li>
+                    <li><code>/stats</code>: Displays basic server statistics like active threads and available memory.</li>
+                </ul></li>
+                <li><b>Customizable Routes:</b> Easily add new routes with specific handlers.</li>
+                <li><b>HTML and JSON Responses:</b> Supports serving both HTML and JSON responses.</li>
+                <li><b>Error Handling:</b> Handles invalid routes with a <code>404 Not Found</code> response.</li>
+            </ul>
+            <br>
+            <h3>Requirements:</h3>
+            <ol>
+                <li>Java Development Kit (JDK): Version 8 or higher.</li>
+                <li>terminal or CLI interface</li>
+            </ol>
+            <br>
+            <h3>Usage:</h3>
+            <p>1. Clone the Repository</p>
+            <pre>git clone https://github.com/ProgrammerPratik/HTTP-server-implementation.git<br>cd SimpleHttpServer</pre>
+            <p>2. Compile and run the Server</p>
+            <pre>javac SimpleHttpServer.java<br>java SimpleHttpServer</pre>
+            <p>3. Accessing the Server through your browser</p>
+            <p>just visit: <u>http://localhost:8080/</u> OR <u>http://127.0.0.1:8080/</u> for locally accessing the server you ran (by default the server will run on port 8080)</p>
+            <br>
+            <p>You can also check the data sent by the user on the server side. This includes the headers and other details from the HTTP request such as User-Agent, Accept, and more as shown below:</p>
+            <img src="https://github.com/user-attachments/assets/6d537986-24bd-42e6-a475-e11e752f332b" alt="cmd-image">
+            <br>
+            <br>
+            <h3>How to add new Routes:</h3>
+            <p>The server provides a simple interface to add custom routes. Here’s an example:</p>
+            <pre>server.addRoute("/hello", (request) -> <br>{<br>    return new HttpResponse(200, "&lt;h1&gt;Hello, World!&lt;/h1&gt;");<br>}</pre>
+            <p>After adding this code, the route "<u>/hello</u>" will serve a basic HTML response.</p>
+            <br>
+            <h3>Sample Curl outputs:</h3>
+            <p>Request: <u>curl http://localhost:8080/time</u></p>
+            <p>Response:</p>
+            <pre>{"time": "2024-11-19T19:15:45.9178453"}</pre>
+            <br>
+            <p>Request: <u>curl http://localhost:8080/health</u></p>
+            <p>Response:</p>
+            <pre>{"status": "healthy", "uptime": "1732023983004"}</pre>
+        </div>
+            <script src="../script.js"></script>
+            <footer style="text-align: center; margin:25px">[<a href="#top">top</a>]</footer>
+        </body>
+        </html>

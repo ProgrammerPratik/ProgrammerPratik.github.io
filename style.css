@@ -12,6 +12,9 @@ body {
   .site-index{
     padding: 0;
   }
+  .full-article{
+    line-height: 25px;
+  }
   html {
       scroll-behavior:smooth;
     }
@@ -51,7 +54,7 @@ body {
 .quote{
     font-family: 'Montserrat', monospace, sans-serif;
 }
-img{
+img,video{
     max-width: 100%;
     height: auto;
     /* display: block; */
