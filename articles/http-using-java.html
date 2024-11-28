@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>How to implement HTTP server using Java</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <h1>How to implement HTTP server using Java</h1>
+    <p class="dates">29 Nov, 2024</p> 
+    <div class="full-article">
+    <br>
+    <h2 id="introduction" class="section-titles"><u>>Introduction</u></h2>
+    <br>
+    <p>Hello World! In this article, we will learn how to implement a very simple HTTP server using Java. This is gonna be a short and simple.</p>
+    <br>
+    <p>Java provides extremely good networking support, due to this its often used in backend development for big enterprise-level companies. So here you will learn how to build basic HTTP server using Java's native networking capabilities. So just read this short article and follow along, its gonna be easy!</p>
+    <br>
+    <h2 id="step1" class="section-titles"><u>>Step 1</u></h2>
+    <br>
+    <p>First step is to create a socket, this socket's job is to accept incoming connections on certain port that is to be specified. Ports are basically sort of “endpoint” where a connection can be made and data can be sent, different processes/applications have different ports and using these ports they can receive communicate. Port numbers range from 0 to 65535, with some ports pre-assigned for specific protocols (e.g., HTTP uses port 80, DNS uses port 53).</p>
+    <br>
+    <p>We can use a java class called <code>ServerSocket</code> which waits for incoming requests to a particular port, we will use port 8080 for this demonstration:</p>
+    <br>
+    <pre>
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class HTTPServerUsingJava {
+  public static void main(String[] args) throws Exception {
+    final ServerSocket server = new ServerSocket(8080);
+    System.out.println("listening on 8080...");
+    while (true){
+      Socket client = server.accept();
+      // infinite loop
+    }
+  }
+}</pre>
+    <br>
+    <p>Running this code will create a socket that will wait for any connection request coming to the port 8080. And you can of course access this server using any browser by navigating to <u>http://localhost:8080</u></p>
+    <br>
+    <p><u>Note:</u> The page will keep loading forever, cause its sending request to port 8080, and the connection request is getting accepted too! but no response is being sent (cause we didn’t program that much yet lol)</p>
+    <br>
+    <p>Now you have implemented HTTP server by creating a socket that is actively listening to a specific port for connections and accepting incoming connections (even if its not giving anything in response).</p>
+    <br>
+    <p>But how do we know what is happening behind the scenes and if the connection is actually being made or not? Lets understand that in this step.</p>
+    <br>
+    <p>When you are navigating to <u>http://localhost:8080</u> your browser is sending a <u>GET</u> request to the server you just created. We can even read the content of that request that is being sent on the server side! Lets read the content being sent by browser using the <code>InputStreamReader</code> and <code>BufferedReader</code> java class for that.</p>
+    <br>
+    <pre>
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class HTTPServerUsingJava {
+  public static void main(String[] args) throws Exception {
+    final ServerSocket server = new ServerSocket(8080);
+    System.out.println("listening on 8080...");
+    while (true){
+          try(Socket client = server.accept()){
+			      InputStreamReader in = new InputStreamReader(client.getInputStream());
+			      BufferedReader reader = new BufferedReader(in);
+			      String line = reader.readLine();
+			      while(!line.isEmpty()){
+			        System.out.println(line);
+			        line = reader.readLine();
+			      }
+	    }
+    }
+  }
+}    </pre>
+    <br>
+    <p>Now, if you compile this and navigating to <u>http://localhost:8080</u> , you still get nothing. BUT BUT BUT!!!! Now if you check the console after navigating:</p>
+    <img src="pics/image25.png" alt="backend-output">
+    <br>
+    <p>your browser sent a bunch of info to the server which you can read like the request type <u>GET</u> and the HTTP protocol being used here which is <u>HTTP/1.1</u>!!! Pretty neat huh!</p>
+    <br>
+    <p>Lets understand how the each line of code is working inside the while loop:</p>
+    <br>
+    <ol>
+        <li><code>InputStreamReader</code>: reads the input stream from the client socket that got the GET request by the browser.</li>
+        <li><code>BufferedReader</code>: buffers the input for efficient reading, cause there are multiple lines in request.</li>
+        <li><code>readLine()</code>: reads a line of text from the input stream.</li>
+        <li>The <code>while</code> loop continues until an empty line is encountered, printing each line to the console.</li>
+    </ol>
+    <br><br>
+    <h2 id="step2" class="section-titles"><u>>Step 2</u></h2>
+    <br>
+    <p>Now you have created a basic HTTP server that's active, listening for requests and accepting requests at server side (and showing request details additionally). Lets see how we can make our server send basic response in this step.</p>
+    <br>
+    <p>Lets make our server respond with “hello world” and show current local date and time:</p>
+    <br>
+    <p>just create a “response” String that should start with <u>"HTTP/1.1 200 OK\r\n\r\n"</u> inside the while loop, and you can send the response with <code>client.getOutputStream().write(response.getBytes());</code>. Keeping the backend side BufferedReader part in code is your choice, as it doesn't affect our response.</p>
+    <br>
+    <p>we will add the following in the loop:</p>
+    <pre>
+// HTTP response part
+String response = "HTTP/1.1 200 OK\r\n\r\n" +
+	          "Hello World, from Java HTTP Server! Current time: " + new Date();
+
+// Send response to client
+client.getOutputStream().write(response.getBytes());</pre>
+    <br>    
+    <p>Let's break down the response string:</p>
+    <p><u>"HTTP/1.1 200 OK\r\n\r\n"</u>: this is a status line, where:</p>
+    <ol>
+        <li><u>HTTP/1.1</u>: This is protocol version.</li>
+        <li><u>200</u>: HTTP status code, 200 means “OK”. Other common status codes:
+        <ul>
+            <li>404 (Not Found)</li>
+            <li>500 (Server Error)</li>
+            <li>403 (Forbidden)</li>
+            <li>201 (Created)</li>
+        </ul>
+        </li>
+        <li><u>OK</u>: A human-readable description of the status code.</li>
+        <li><u>\r\n\r\n</u>: These are special characters that signify the end of headers and the start of the response body.</li>
+    </ol>
+    <br>
+    <p>Final code should look like this:</p>
+    <pre>
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Date;
+
+public class HTTPServerUsingJava {
+    public static void main(String[] args) throws Exception {
+        final ServerSocket server = new ServerSocket(8080);
+        System.out.println("Listening on port 8080...");
+        while (true){
+          try(Socket client = server.accept()){
+            // Backend request info part (optional)
+            InputStreamReader in = new InputStreamReader(client.getInputStream());
+            BufferedReader reader = new BufferedReader(in);
+            String line = reader.readLine();
+            while(!line.isEmpty()){
+              System.out.println(line);
+              line = reader.readLine();
+            }
+
+            // HTTP response part
+            String response = "HTTP/1.1 200 OK\r\n\r\n" +
+                              "Hello World, from Java HTTP Server! Current time: " + new Date();
+
+            // Send response to client
+            client.getOutputStream().write(response.getBytes());
+          }
+      }
+    }
+}</pre>
+    <br>
+    <p>Once compiled, visit the server in the browser you will see output:</p>
+    <img src="pics/image26.png" alt="browser-response">
+    <br><br>
+    <p>Congrats!!!</p>
+    <p>You have successfully understood and implemented a working and simple HTTP server using Java. The response is coming from a server that's running on your system at port 8080!</p>
+    <br>
+    <p>This was most basic level of implementation of HTTP server, you can further improve on it by adding other complex stuff like:</p>
+    <ul>
+        <li>Adding more complex responses based on conditions.</li>
+        <li>Implementing Multithreading.</li>
+        <li>Adding error handling.</li>
+    </ul>
+    <p>and much more!</p>
+    <br>
+    <p>I have created a bit complex level of similar project on HTTP server implementation myself, which supports multithreading, allowing it to handle multiple client connections simultaneously. You can refer to this project too.</p>
+    <p>><a href="https://programmerpratik.github.io/projects/http-using-java.html">https://programmerpratik.github.io/projects/http-using-java.html</a></p>
+    <br>
+    <p>Hope you found this article helpful! Thanks for reading have a great day <3</p>
+</div>
+    <script src="../script.js"></script>
+    <footer style="text-align: center; margin:25px">[<a href="#top">top</a> | <a class="theme-toggle" onclick="toggleTheme()">toggle theme</a>]</footer>
+</body>
+</html>
