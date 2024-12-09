@@ -25,18 +25,40 @@
         <p>Repository link: <a href="https://github.com/ProgrammerPratik/passgen">https://github.com/ProgrammerPratik/passgen</a></p>
         <br>
         <h3>Overview:</h3>
-        <p>Simple and strong CLI based password generator made using pure C++</p>
+        <p>Simple and powerful CLI-based password generator made with modern C++</p>
         <br>
-        <h3>Usage</h3>
-        <pre>-l &lt;length&gt; -m &lt;mode&gt;<br>there are 3 modes i.e. 0,1,2 <br>-h    for help <br><br>OPTIONAL ARGUMENTS: <br>-l  OR  -length      length of password <br>-m  OR  -mode        mode of password (0=only letters,1=random,2=alphanumeric) <br>-h  OR  -help        for more info <br>-v  OR  -version     version info and stuff</pre>
+        <video controls>
+            <source src="https://github.com/user-attachments/assets/a1ebf283-2d57-4bb9-b348-8b03e7a6ac5f" type="video/mp4">Your browser does not support the video tag.</video>
+            <br>
+            <br>
+            <h3>features:</h3>
+            <ul>
+                <li>Multiple password generation modes</li>
+                <li>Cryptographically secure random number generation</li>
+                <li>Command-line interface</li>
+                <li>Easy to use and customize</li>
+            </ul>
+            <br>
+            <h3>Installation:</h3>
+            <p>1. Clone the repository:</p>
+            <pre>git clone https://github.com/ProgrammerPratik/passgen.git</pre>
+            <p>2. Compile the program:</p>
+            <pre>g++ -o passgen passgen.cpp</pre>
+            <br>
+            <h3>Usage:</h3>
+            <p>Basic syntax:</p>
+            <pre>passgen -l &lt;length&gt; -m &lt;mode&gt;</pre>
+            <br>
+            <p>More:</p>
+        <pre>passgen -l &lt;length&gt; -m &lt;mode&gt;<br>there are 3 modes i.e. 0,1,2 <br>-h    for help <br><br>OPTIONAL ARGUMENTS: <br>-l  OR  -length      length of password <br>-m  OR  -mode        mode of password (0=only letters,1=random,2=alphanumeric) <br>-h  OR  -help        for more info <br>-v  OR  -version     version info and stuff</pre>
         <br>
         <h3>Test Examples:</h3>
         <p>Password generation with <u>mode 0</u> (only letters)</p>
-        <pre>-l 10 -m 0 <br>wJtPhQGHuMEAy       <- output</pre>
+        <pre>passgen -l 10 -m 0 <br>wJtPhQGHuMEAy       <- output</pre>
         <p>Password generation with <u>mode 1</u> (random)</p>
-        <pre>-l 8 -m 1 <br>8%5E{6?_</pre>
+        <pre>passgen -l 8 -m 1 <br>8%5E{6?_</pre>
         <p>Password generation with <u>mode 2</u> (alphanumeric)</p>
-        <pre>-l 10 -m 2  <br>8G5Ey68237</pre>
+        <pre>passgen -l 10 -m 2  <br>8G5Ey68237</pre>
         </div>
             <script src="../script.js"></script>
             <footer style="text-align: center; margin:25px">[<a href="#top">top</a> | <a class="theme-toggle" onclick="toggleTheme()">toggle theme</a>]</footer>
