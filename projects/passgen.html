@@ -28,7 +28,7 @@
         <p>Simple and powerful CLI-based password generator made with modern C++</p>
         <br>
         <video controls>
-            <source src="https://github.com/user-attachments/assets/a1ebf283-2d57-4bb9-b348-8b03e7a6ac5f" type="video/mp4">Your browser does not support the video tag.</video>
+            <source src="https://github.com/user-attachments/assets/742fbaac-0800-4db9-b7d2-fa0ef66cd8df" type="video/mp4">Your browser does not support the video tag.</video>
             <br>
             <br>
             <h3>features:</h3>
@@ -44,6 +44,24 @@
             <pre>git clone https://github.com/ProgrammerPratik/passgen.git</pre>
             <p>2. Compile the program:</p>
             <pre>g++ -o passgen passgen.cpp</pre>
+            <p>3. Adding to PATH Environment Variable (if you want instant access anywhere)</p>
+            <p><u>Windows</u></p>
+            <ol>
+                <li>Compile and copy path to the file.</li>
+                <li>Search 'Environment Variables' and open it.</li>
+                <li>Under 'System variables', find and select 'Path', then click 'Edit'.</li>
+                <li>Click 'New' and add the full path to the directory containing passgen.exe (that you copied before), and save.</li>
+            </ol>
+            <p><u>Linux:</u></p>
+            <ol>
+                <li>Compile and copy path to the file.</li>
+                <li>Open terminal and paste the following (replace the path with actual path):
+                    <pre>export PATH=$PATH:/[path]</pre>
+                </li>
+                <li>Save the file and reload the configuration:
+                    <pre>source ~/.bashrc    # or source ~/.zshrc</pre>
+                </li>
+            </ol>
             <br>
             <h3>Usage:</h3>
             <p>Basic syntax:</p>
@@ -51,10 +69,6 @@
             <br>
             <p>More:</p>
         <pre>passgen -l &lt;length&gt; -m &lt;mode&gt;<br>there are 3 modes i.e. 0,1,2 <br>-h    for help <br><br>OPTIONAL ARGUMENTS: <br>-l  OR  -length      length of password <br>-m  OR  -mode        mode of password (0=only letters,1=random,2=alphanumeric) <br>-h  OR  -help        for more info <br>-v  OR  -version     version info and stuff</pre>
-        <br>
-        <p>output:</p>
-        <img src="https://files.catbox.moe/xk4x5n.png" alt="passgen-img">
-        <br>
         <br>
         <h3>Test Examples:</h3>
         <p>Password generation with <u>mode 0</u> (only letters)</p>
