@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Simple Spring Security Authentication Demonstration</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <h1>PROJECT: Simple Spring Security Authentication Demonstration</h1>
+    <p class="dates">12 Dec, 2024</p>
+    <div class="full-article">
+        <br>
+        <p>Repository link: <a href="https://github.com/ProgrammerPratik/java-spring-security">https://github.com/ProgrammerPratik/java-spring-security</a></p>
+        <br>
+        <h3>Overview:</h3>
+        <p>This is a simple Spring Boot MVC application project demonstrating basic web security implementation using Spring Security, Thymeleaf, and authentication mechanisms. Looks kinda simple, but demonstrates security principles like Route protection, Authentication, Login/Logout mechanisms, User role management very well.</p>
+        <br>
+        <video controls>
+            <source src="https://github.com/user-attachments/assets/2e73c520-58cd-4324-9299-f86ece6a501f" type="video/mp4">Your browser does not support the video tag.</video>     
+            <br>
+            <br>
+            <h3>features:</h3>
+            <ul>
+                <li>Basic authentication system</li>
+                <li>Protected and public routes</li>
+                <li>Login/Logout functionality</li>
+                <li>User authentication with in-memory user management</li>
+                <li>Thymeleaf integration for dynamic views</li>
+            </ul>
+            <br>
+            <h3>Technologies Used:</h3>
+            <ul>
+                <li>Spring Boot</li>
+                <li>Spring Security</li>
+                <li>Thymeleaf</li>
+                <li>Tailwind CSS and Feather Icons (for styling)</li>
+            </ul>
+            <br>
+            <h3>Running the Application:</h3>
+            <ol>
+                <li>Clone the repository:
+                    <pre>
+git clone https://github.com/ProgrammerPratik/java-spring-security
+cd java-spring-security</pre>
+                </li>
+                <li><u>Ensure Java version 23 and Maven are installed (this specific project uses java 23)</u></li>
+                <li>Run <code>./mvnw spring-boot:run</code> OR you can use any IDE like intellij to build and run project</li>
+                <li>Access at <a href="http://localhost:8080"><code>http://localhost:8080</code></a></li>
+            </ol>
+            <br>
+            <h3>Default Demo Login Credentials (can be changed)</h3>
+            <ul>
+                <li>Username: superman</li>
+                <li>Password: password</li>
+            </ul>
+            <br>
+            <h3>Key Configuration Components:</h3>
+            <p>WebSecurityConfig.java</p>
+            <pre>
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig {
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests((requests) -> 
+                requests
+                    .requestMatchers("/", "/home").permitAll()
+                    .anyRequest().authenticated()
+            )
+            .formLogin((form) -> 
+                form
+                    .loginPage("/login")
+                    .permitAll()
+            )
+            .logout((logout) -> 
+                logout.permitAll()
+            );
+        return http.build();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails user = User.withDefaultPasswordEncoder()
+            .username("user")
+            .password("password")
+            .roles("USER")
+            .build();
+        return new InMemoryUserDetailsManager(user);
+    }
+}</pre>
+            <br>
+            <h3>Security Flow:</h3>
+            <ol>
+                <li>Public routes ("/", "/home") are accessible WITHOUT login</li>
+                <li>All other routes require authentication</li>
+                <li>Custom login page at "/login"</li>
+                <li>In-memory user authentication (user/password)</li>
+            </ol>
+        </div>
+            <script src="../script.js"></script>
+            <footer style="text-align: center; margin:25px">[<a href="#top">top</a> | <a class="theme-toggle" onclick="toggleTheme()">toggle theme</a>]</footer>
+        </body>
+        </html>
