@@ -63,6 +63,10 @@
 .shuffle-text:hover, .name:hover{
     color: var(--shuffle-hover);    
 }
+.shuffle-text{
+    white-space: nowrap;
+    /* font-size: clamp(32px, 5vw, 64px); */
+}
 .content{
     display: flex;
     margin: 0 auto;
@@ -102,7 +106,7 @@ pre {
     border: 1px solid;
 }
 a {
-    color: tomato;
+    color: var(--link-color);
     background-color: transparent;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -119,12 +123,9 @@ a:hover {
     color: var(--date-color);
 }
 .section-titles{
-    color: tomato;
+    color: var(--link-color);
 }
   /* mediaquery css */
-  @media screen and (max-width: 1200px){ 
-
-}
 
 @media screen and (max-width: 700px){
     body {
@@ -154,10 +155,5 @@ a:hover {
     .container {
         padding-top: 20%;
         padding-bottom: 20%;
-    }
-}
-@media screen and (max-width: 315px){
-    .shuffle-text{
-        font-size: 160%;
     }
 }
