@@ -136,6 +136,12 @@ a:hover {
     z-index: 1000; /* Ensure the GIF appears above other content */
     cursor: pointer; /* Shows it's clickable */
     transition: transform 0.1s ease; /* Small bounce effect */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fixed-gif:hover {
     transform: scale(1.05); /* Slight hover effect */
