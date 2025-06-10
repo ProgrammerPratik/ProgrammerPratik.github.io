@@ -127,7 +127,23 @@ a:hover {
     color: var(--link-color);
 }
   /* mediaquery css */
+.fixed-gif {
+    position: fixed; /* Keeps the GIF fixed relative to the viewport */
+    bottom: 10px; /* Distance from the bottom of the viewport */
+    right: 10px; /* Distance from the left of the viewport */
+    width: 90px; /* Adjust the size of the GIF as needed */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1000; /* Ensure the GIF appears above other content */
+    cursor: pointer; /* Shows it's clickable */
+    transition: transform 0.1s ease; /* Small bounce effect */
+}
+.fixed-gif:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
 
+.fixed-gif:active {
+    transform: scale(0.95); /* Click feedback */
+}
 @media screen and (max-width: 700px){
     *{
         margin: 0;
