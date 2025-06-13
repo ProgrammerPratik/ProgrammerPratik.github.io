@@ -150,6 +150,32 @@ a:hover {
 .fixed-gif:active {
     transform: scale(0.95); /* Click feedback */
 }
+
+.popup {
+    position: fixed;
+    font-size: 15px;
+    font-weight: bold;
+    color: #da8805;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    pointer-events: none;
+    z-index: 1001;
+    animation: popupAnimation 1s ease-out forwards;
+}
+
+@keyframes popupAnimation {
+    0% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(0.8);
+    }
+}
 @media screen and (max-width: 700px){
     *{
         margin: 0;
