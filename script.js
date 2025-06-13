@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPopup(x, y) {
         const popup = document.createElement('div');
         popup.className = 'popup';
-        popup.textContent = '+1';
+        popup.textContent = '🔥';
         popup.style.left = x + 'px';
         popup.style.top = y + 'px';
         
