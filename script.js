@@ -1,43 +1,49 @@
-// Add this JavaScript to your script.js file
-
-const gif = document.getElementById('clickableGif');
-
-function createPopup(x, y) {
-    const popup = document.createElement('div');
-    popup.className = 'popup';
-    popup.textContent = '🔥';
-    popup.style.left = x + 'px';
-    popup.style.top = y + 'px';
+document.addEventListener('DOMContentLoaded', function() {
+    const gif = document.getElementById('clickableGif');
     
-    document.body.appendChild(popup);
-    
-    // Remove the popup after animation completes
-    setTimeout(() => {
-        if (popup.parentNode) {
-            popup.parentNode.removeChild(popup);
-        }
-    }, 1000);
-}
-
-if (gif) {
-    gif.addEventListener('click', function(event) {
-        // Prevent default behavior
-        event.preventDefault();
+    function createPopup(x, y) {
+        const popup = document.createElement('div');
+        popup.className = 'popup';
+        popup.textContent = '+1';
+        popup.style.left = x + 'px';
+        popup.style.top = y + 'px';
         
-        // Get click position
-        const x = event.clientX;
-        const y = event.clientY;
+        document.body.appendChild(popup);
         
-        // Create popup at click position
-        createPopup(x, y);
-        
-        // Optional: Add a small bounce effect to the GIF
-        gif.style.transform = 'scale(0.95)';
+        // Remove the popup after animation completes
         setTimeout(() => {
-            gif.style.transform = 'scale(1)';
-        }, 100);
-    });
-}
+            if (popup.parentNode) {
+                popup.parentNode.removeChild(popup);
+            }
+        }, 1000);
+    }
+    
+    if (gif) {
+        console.log('GIF element found, adding click listener'); // Debug log
+        
+        gif.addEventListener('click', function(event) {
+            console.log('GIF clicked!'); // Debug log
+            
+            // Prevent default behavior
+            event.preventDefault();
+            
+            // Get click position
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Create popup at click position
+            createPopup(x, y);
+            
+            // Optional: Add a small bounce effect to the GIF
+            gif.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                gif.style.transform = 'scale(1)';
+            }, 100);
+        });
+    } else {
+        console.log('GIF element not found!'); // Debug log
+    }
+});
 document.addEventListener("DOMContentLoaded", function () {
     const targetText = "[Pratik Merekar]";
     const textElement = document.getElementById("shuffle-text");
