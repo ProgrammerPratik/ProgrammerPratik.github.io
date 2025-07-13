@@ -1,10 +1,16 @@
+let fireScore = localStorage.getItem('fireScore') ? parseInt(localStorage.getItem('fireScore')) : 0;
+
 document.addEventListener('DOMContentLoaded', function() {
     const gif = document.getElementById('clickableGif');
     
     function createPopup(x, y) {
         const popup = document.createElement('div');
         popup.className = 'popup';
-        popup.textContent = '🔥';
+        if(fireScore>=10){
+            popup.textContent = '❤️';
+        } else{
+            popup.textContent = '🔥';
+        }
         popup.style.left = x + 'px';
         popup.style.top = y + 'px';
         
@@ -17,16 +23,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 1000);
     }
-    
+    if (fireScore >= 10) {
+        document.getElementById('clickableGif').src = 'assets/nyan.gif'; // Replace with your new image URL
+    } else{
+        document.getElementById('clickableGif').src = 'assets/bonfire.gif'; // Replace with your new image URL
+    }
     if (gif) {
-        console.log('GIF element found, adding click listener'); // Debug log
-        
         gif.addEventListener('click', function(event) {
-            console.log('GIF clicked!'); // Debug log
-            
-            // Prevent default behavior
+            fireScore++;
+            localStorage.setItem('fireScore', fireScore);
             event.preventDefault();
-            
+            if(fireScore>=20) fireScore = 0;
+            if (fireScore >= 10) {
+                document.getElementById('clickableGif').src = 'assets/nyan.gif'; // Replace with your new image URL
+            } else{
+                document.getElementById('clickableGif').src = 'assets/bonfire.gif'; // Replace with your new image URL
+            }
             // Get click position
             const x = event.clientX;
             const y = event.clientY;
@@ -41,15 +53,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100);
         });
     } else {
-        console.log('GIF element not found!'); // Debug log
+        console.log('GIF element not found!');
     }
 });
+
 document.addEventListener("DOMContentLoaded", function () {
     const targetText = "[Pratik Merekar]";
     const textElement = document.getElementById("shuffle-text");
-    const shuffleDuration = 1500; // Total shuffling time
+    const shuffleDuration = 1500;
     const clickShuffleDuration = 1000;
-    const shuffleInterval = 50; // Interval between each shuffle
+    const shuffleInterval = 50;
 
     if (!sessionStorage.getItem('shuffleShown')) {
         sessionStorage.setItem('shuffleShown', 'true');
