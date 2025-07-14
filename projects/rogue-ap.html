@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Rogue Access Point using ESP8266</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <h1>PROJECT: Rogue Access Point using ESP8266</h1>
+    <p class="dates">15 Jul, 2025</p>
+    <div class="full-article">
+        <br>
+        <p>Repository link: <a href="https://github.com/ProgrammerPratik/Rogue-Access-Point-using-ESP8266" target="_blank">https://github.com/ProgrammerPratik/Rogue-Access-Point-using-ESP8266</a></p>
+        <br>
+        <h3>Overview:</h3>
+        <p>A simple project where I create a connectable access point (WIFI?) using just a little esp8266 which demonstrates how dangerous connecting to random Wifi's can be, and how your device's data can be compromised by you just "connecting".</p>
+        <br>
+        <p><b>Disclaimer:</b> This is only my personal project and is for educational purposes only. It is <u>not</u> meant to promote or encourage misuse. Readers are responsible for how they use this information.</p>
+        <br>
+        <img src="pics/rogue-ap-thumbnail.png" alt="">
+            <br>
+            <br>
+            <h3>How it works:</h3>
+            <ul>
+                <li>The ESP8266 creates a rogue WiFi access point that simulates public WiFi networks.</li>
+                <li>Runs a DNS server to redirect all DNS requests to the ESP's IP</li>
+                <li>Hosts a simple web server that has a portal that acts as a FAKE html "login" page.</li>
+                <li>Shows clients MAC address on your system (in serial monitor).</li>
+            </ul>
+            <br>
+            <h3>Requirements:</h3>
+            <ul>
+                <li>ESP8266 module (NodeMCU)</li>
+                <li>USB cable</li>
+                <li>Computer</li>
+            </ul>
+            <br>
+            <h3>Installation:</h3>
+            <p>1. Download the <a href="https://github.com/ProgrammerPratik/Rogue-Access-Point-using-ESP8266/blob/main/rogue-ap.ino" target="_blank">rogue-ap.ino</a> file from github.</p>
+            <p>2. Connect ESP8266 to your system.</p>
+            <p>3. Open that <code>rogue-ap.ino</code> file in the Arduino IDE.</p>
+            <p>(setup all the appropriate drivers & libraries for arduino to esp8266 communication by following any online guide, and make sure you can install stuff in it.)</p>
+            <p>4. After successful installation open "Serial Monitor" and select 115200 baud rate.</p>
+            <p>5. If nothing comes up, try reconnecting the ESP8266.</p>
+            <br>
+            <h3>Usage:</h3>
+            <p>After setting up and opening serial monitor, if you see this that means its running:</p>
+            <br>
+            <img src="pics/rogue-ap1.png" alt="server started img">
+            <br>
+            <p>Now you can try connecting to this Wifi that you just created on yout ESP8266 from your phone or other system. It will openn the fake HTML page on the device as if you are connecting to something real lol:</p>
+            <br>
+            <img src="pics/rogue-ap2.png" alt="phone wifi settings">
+            <br>
+            <br>
+            <p>And if you look at the serial monitor, you will see the collected data (MAC address in this case)</p>
+            <br>
+            <img src="pics/rogue-ap3.png" alt="">
+            <br>
+            <h3>Conclusion & Further possibilities:</h3>
+            <p>More data can be extracted like Hostname ("Pratik's phone"), HTTP Request data (user agent, form data etc) and other metadata. Obviously more different kinds of juicy data can be collected just by this little ESP, imagine what else they can achieved with full fledged network setup. I might try to implement them if possib;e in future.</p>
+            <br>
+        </div>
+            <script src="../script.js"></script>
+            <footer style="text-align: center; margin:25px">[<a href="#top">top</a> | <a class="theme-toggle" onclick="toggleTheme()">toggle theme</a>]</footer>
+        </body>
+        </html>
