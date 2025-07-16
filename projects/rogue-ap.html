@@ -38,7 +38,11 @@
                 <li>Runs a DNS server to redirect all DNS requests to the ESP's IP</li>
                 <li>Hosts a simple web server that has a portal that acts as a FAKE html "login" page.</li>
                 <li>Shows clients MAC address on your system (in serial monitor).</li>
+                <li><a href="#indepth">in depth working ahead</a></li>
             </ul>
+            <br>
+            <h3>Simple illustration explaining flow of working:</h3>
+            <img src="pics/block-diagram.png" alt="block-diagram" width="800px">
             <br>
             <h3>Requirements:</h3>
             <ul>
@@ -57,20 +61,24 @@
             <br>
             <h3>Usage:</h3>
             <p>After setting up and opening serial monitor, if you see this that means its running:</p>
-            <br>
             <img src="pics/rogue-ap1.png" alt="server started img">
             <br>
             <p>Now you can try connecting to this Wifi that you just created on yout ESP8266 from your phone or other system. It will openn the fake HTML page on the device as if you are connecting to something real lol:</p>
-            <br>
             <img src="pics/rogue-ap2.png" alt="phone wifi settings">
             <br>
             <br>
             <p>And if you look at the serial monitor, you will see the collected data (MAC address in this case)</p>
-            <br>
             <img src="pics/rogue-ap3.png" alt="">
             <br>
+            <h3 id="indepth">Inner working (in depth)</h3>
+            <p>The ESP8266's WiFi radio sends 802.11 beacon frames (management frames that contains info that can be used in wireless networks) advertising as the fake "Free_WiFi". A built-in DHCP server (part of <code></code> library) hands out IPs to clients, so when someone tries to connect to this "wifi" sending a DHCP request, the ESP's server catches it. The ESP acts as the gateway and DNS server, controlling all traffic.</p>
+            <br>
+            <p>The <code>DNSServer</code> library responds to DNS queries with "192.168.4.1". And the <code>ESP8266WebServer</code> library listens for TCP connections at port 80, and hits with the HTML login page whenever someone connects. Whenever user tries to access any website request is sent to its corresponding IP (like google.com -> an IP), so when client sends an HTTP request to 192.168.4.1, the webserver catches it and serves the HTML portal.</p>
+            <br>
+            <p><code>wifi_softap_get_station_info()</code> Grabs a list of connected clients' MACs and IPs from the ESP's WiFi stack.</p>
+            <br>
             <h3>Conclusion & Further possibilities:</h3>
-            <p>More data can be extracted like Hostname ("Pratik's phone"), HTTP Request data (user agent, form data etc) and other metadata. Obviously more different kinds of juicy data can be collected just by this little ESP, imagine what else they can achieved with full fledged network setup. I might try to implement them if possib;e in future.</p>
+            <p>More data can be extracted like Hostname ("Pratik's phone"), HTTP Request data (user agent, form data etc) and other metadata. Obviously more different kinds of juicy data can be collected just by this little ESP, imagine what else they can achieved with full fledged network setup. I might try to implement them if possible in future.</p>
             <br>
         </div>
             <script src="../script.js"></script>

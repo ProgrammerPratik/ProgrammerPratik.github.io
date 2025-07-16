@@ -136,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('mail').src = 'assets/mail2.png';
     }
 });
 
@@ -144,8 +145,10 @@ function toggleTheme() {
     if (body.getAttribute('data-theme') === 'dark') {
         body.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
+        document.getElementById('mail').src = 'assets/mail1.png';
     } else {
         body.setAttribute('data-theme', 'dark');
+        document.getElementById('mail').src = 'assets/mail2.png';
         localStorage.setItem('theme', 'dark');
     }
 }
