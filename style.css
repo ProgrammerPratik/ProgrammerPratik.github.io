@@ -130,18 +130,19 @@ a:hover {
 .section-titles{
     color: var(--link-color);
 }
+/*
 .mail {
     position: fixed;
     bottom: 12px;
     left: 12px;
-    width: 50px; /* 32px * 3 = clean 3x scaling */
-    height: 50px; /* Keep it square for pixel art */
+    width: 50px; 
+    height: 50px;
     z-index: 1000;
     cursor: pointer;
     transition: transform 0.1s ease;
-    image-rendering: pixelated; /* Crisp pixel scaling */
-    image-rendering: -moz-crisp-edges; /* Firefox fallback */
-    image-rendering: crisp-edges; /* Standard */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -156,6 +157,44 @@ a:hover {
 
 .mail:active {
     transform: scale(0.95);
+} */
+.mail {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    animation: mailFloat 3s ease-in-out infinite;
+}
+
+.mail:hover {
+    transform: scale(1.05);
+    animation-play-state: paused;
+}
+
+.mail:active {
+    transform: scale(0.95);
+}
+
+@keyframes mailFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
 }
   /* mediaquery css */
 .fixed-gif {
