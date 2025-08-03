@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Different Backend Design Patterns</title>
+</head>
+<body>
+    <header class="top">
+        <div class="shuffle-container">
+            <h1 id="shuffle-text" class="shuffle-text">[Pratik Merekar]</h1>
+        </div>
+    </header>
+    <div class="content">
+        <ul class="site-index">
+            <li style="margin-bottom: 20%;"><a href="../index.html">return</a></li>
+        </ul>
+    </div>
+    <br>
+    <h1>Different Backend Design Patterns</h1>
+    <p class="dates">3 Aug, 2025</p> 
+    <div class="full-article">
+    <br>
+    <h2 id="table-of-contents">Table of Contents:</h2>
+    <br>
+    <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#request-response">Request Response</a></li>
+        <li><a href="#synchronous-asynchronous">Synchronous vs Asynchronous</a></li>
+        <li><a href="#push">Push</a></li>
+        <li><a href="#short-polling">Polling (Short Polling)</a></li>
+        <li><a href="#long-polling">Long Polling</a></li>
+        <li><a href="#sse">Server Sent Events (SSE)</a></li>
+        <li><a href="#pub-sub">Publish Subscribe (Pub/Sub)</a></li>
+        <li><a href="#stateful-stateless">Stateful vs Stateless</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+    <br> <br> <br>
+    <h2 id="introduction" class="section-titles"><u>>Introduction</u></h2>
+    <br>
+    <p>Hello World! In this article, we will learn how about some of the communication design patterns/concepts that are used in backend and you may have even heard about them. You will explore how there are multiple ways a client can communicate with the server and vise versa.</p> <br>
+    <img src="pics/image27.png" alt="internet" width="600px">
+    <br>
+    <p>We will start from some very basic and well known foundational concepts like “Request-Response” and move to some architectural concepts like “Stateful vs Stateless”. I will try to keep everything to the point and simple without loosing any meaning, I hope you learn something from this article.</p>
+    <br><br><br>
+    <h2 id="request-response" class="section-titles"><u>>Request Response</u></h2>
+    <p>(The Classic Conversation)</p>
+    <br>
+    <p>This is perhaps one of the most fundamental and widely used communication model in backend systems, or in web in general. It works like an interaction between parties (i.e. the client & the server), where one party sends request and other responds/serves that particular request. Think of it like a conversation between you and your friend, you ask the question, and your friend responds to that with an answer.</p>
+    <br>
+    <h3><b>Let's break down the typical flow:</b></h3>
+    <ul>
+        <li>Client initiates a Request.</li>
+        <li>Server receives, parses and processes that request.</li>
+        <li>After server has done processing, it generates a response. this response generally includes:
+            <ul>
+                <li>Status: whether request was successful or not (e.g., <code>200 OK</code>, <code>404 Not Found</code>, <code>500 Internal Server Error</code>).</li>
+            </ul>
+        </li>
+        <li>Client receives the response and acts accordingly.</li>
+    </ul> 
+    <img src="pics/image28.png" alt="req-resp-illustration">
+    <br>
+    <h3><b>Anatomy:</b></h3>
+    <p>The request and response structure is predefined by both parties. It is defined by a specific protocol and format that will be used.</p>
+    <p><b>Example:</b></p>
+    <p><b>HTTP Request:</b></p>
+    <pre>
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+(empty line indicating end of headers)</pre>
+<p><b>HTTP Response:</b></p>
+<pre>
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1234
+(empty line indicating end of headers)
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Example Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+    <br>
+    <h3>Where it is used and works:</h3>
+    <ul>
+        <li>For most client-initiated interactions on web.</li>
+        <li>HTTP, DNS, SSH.</li>
+        <li>SQL & Databases.</li>
+        <li>API’s like REST, GraphQL etc.</li>
+    </ul>
+    <br>
+    <h3>Where it doesn’t work and falls flat:</h3>
+    <ul>
+        <li>Chatty and resource Intensive services where continuous updates are expected.</li>
+        <li>Not Suitable for Large Requests.</li>
+        <li>Where client needs to wait, or may disconnect.</li>
+    </ul>
+    <br><br><br>
+    <h2 id="synchronous-asynchronous" class="section-titles"><u>>Synchronous vs Asynchronous</u></h2>
+    <p>(Wait or Don't Wait)</p>
+    <br>
+    <p>While Request-Response is about how two parties interact, Synchronous vs Asynchronous is about how they interact and how they handle the “waiting”.</p>
+    <br>
+    <h3>Synchronous Communication:</h3>
+    <p>In Synchronous, the client sends a request and waits for the response, the server may process and respond in this timeframe the client is essentially frozen and cannot proceed till it gets the response back. Its like you calling someone on phone, you cannot start speaking or acting until they pick up and respond.</p>
+    <br>
+    <h3>Let's break down the work flow:</h3>
+    <ul>
+        <li>Client sends a request and <b>waits</b>.</li>
+        <li>The client's executing thread or process is blocked, unable to perform other tasks until the response arrives.</li>
+        <li>Server Responds, then Client <b>resumes</b>.</li>
+        <li>Both parties are tightly coupled in their interaction, meaning the client's progress is directly dependent on the server's speed.</li>
+    </ul>
+    <br>
+    <h3>Where to use:</h3>
+    <ul>
+        <li>Simple basic Request-Response.</li>
+        <li>Where immediate feedback is expected.</li>
+        <li>Sequential Dependencies (Where one operation depends on previous one’s completion).</li>
+    </ul>
+    <br>
+    <h3>Asynchronous Communication:</h3>
+    <p>Now this is obviously opposite of the Synchronous communication, in Asynchronous communication the client sends request and does not wait/freeze. The client can do other work while the request is processed by server and served to it. Once server is done processing the request and sends a response, the client is notified (via a callback, a promise, or a message queue event). Think of this like you sending an email to your friend, you can send email and do other work without relying on their response.</p>
+    <br>
+    <h3>Let's break down the work flow:</h3>
+    <ul>
+        <li>Client sends a request and <b>does NOT wait</b>.</li>
+        <li>Client can work parallelly, as it is not relying on response.</li>
+        <li>Server processes client’s request and sends a response.</li>
+        <li>Client receives.</li>
+        <li>This decoupling allows for greater concurrency and efficiency, as neither party has to wait on the other's immediate completion.</li>
+    </ul>
+    <br>
+    <h3>Where to use:</h3>
+    <ul>
+        <li>Scalable applications where responsiveness is needed.</li>
+        <li>Long running operations where wait is not viable.</li>
+        <li>Large data processing.</li>
+    </ul>
+    <img src="pics/image29.png" alt="sync-async">
+    <br>
+    <p><u>NOTE</u>: In Traditional Request-Response (like HTTP), “client” has the <b>Synchronicity property</b>, as client need to wait. Of course modern clients are asynchronous and can do other work as Modern client-side development heavily relies on asynchronous HTTP requests.</p>
+    <br><br><br>
+    <h2 id="push" class="section-titles"><u>>Push</u></h2>
+    <p>(Server Speaks)</p>
+    <br>
+    <p>If a client wants real time notification from backend without needing to initiate requests time to time, a architecture where server sends data directly without any request. In Push, the client is not the initiator, as soon as bidirectional connection is established the server can directly send data. Its like when mailman delivers your mail on doorstep as soon as it arrives at the post office without needing your intervention.</p>
+    <br>
+    <h3>Inner working:</h3>
+    <ul>
+        <li>Client establishes connection (as connection is needed).</li>
+        <li>Server waits for a event or new information.</li>
+        <li>Server initiates communication based on certain event.</li>
+        <li>Client receives.</li>
+    </ul>
+    <img src="pics/image30.png" alt="push">
+    <br>
+    <h3>Scenarios Where Push is Essential:</h3>
+    <ul>
+        <li>Real-time Notifications.</li>
+        <li>Live Data Feeds.</li>
+        <li>Chat applications.</li>
+    </ul>
+    <br><br><br>
+    <h2 id="short-polling" class="section-titles"><u>>Polling (Short Polling)</u></h2>
+    <p>(Are We There Yet?)</p>
+    <br>
+    <p>After understanding “Push” mechanism, it is important to understand its counterpart Polling, which is client initiated.</p>
+    <br>
+    <p>In Polling (also known as Short Polling), the client periodically sends request to server to check for new data or updates. The server immediately processes the requests and sends back response even if no update is ready yet. The client waits for fixed interval again before sending next request, regardless of whether updates are expected or not. Think of it like this, when someone with less patience in a restaurant keeps asking if his food is ready or not to the waiters, and if its not ready they will respond with “no”, then he asks again after 5 minutes for updates.</p>
+    <br>
+    <h3>How it works:</h3>
+    <ul>
+        <li>Client sends a request.</li>
+        <li>Server immediately responds with a “handle id”.</li>
+        <li>Server continues to process that request.</li>
+        <li>Client keeps requesting periodically using that “handle id” to check for status.</li>
+        <li>Once, Response is ready, server sends it on a Request.</li>
+    </ul>
+    <img src="pics/image31.png" alt="polling-short">
+    <br>
+    <h3>Where to use it:</h3>
+    <ul>
+        <li>When real-time updates aren't critical, and a slight delay is acceptable (e.g., a dashboard that refreshes every few minutes)</li>
+        <li>Periodic System Status Checks.</li>
+        <li>System where clients can disconnect, reconnect and can check back on same status updates (using the “handle id”).</li>
+    </ul>
+    <br>
+    <h3>Some Disadvantages:</h3>
+    <ul>
+        <li>Mechanism is too chatty.</li>
+        <li>Uses high bandwidth and unnecessary backend resources.</li>
+    </ul>
+    <br><br><br>
+    <h2 id="long-polling" class="section-titles"><u>>Long Polling</u></h2>
+    <p>(Short Polling but patient one)</p>
+    <br>
+    <p>Having understood the inefficiencies of Short Polling (where its too chatty of a mechanism), Long Polling solves those things. This pattern is an optimized version of polling where client sends request to the server just like polling, but instead of immediately responding with a “no” message if update is not ready, the server waits and DOES NOT reply unless update is ready. Server replies only when response if ready, so this makes the mechanism less chatty, and provide a near real-time experience. If we try to put previous example here too, here the person now has patience and when he asks a waiter if his food ready or not, the waiter says “I will bring the food as soon as its ready”, and the person does not ask again.</p>
+    <br>
+    <p><u>NOTE</u>: This is kind of similar to the simple “Request Response” mechanism, but this is kind of different as the client can disconnect if request “handle id” is involved and the Connection Lifetime is also extended. You can say long polling is “better” version of request response.</p>
+    <br>
+    <h3>How it works:</h3>
+    <ul>
+        <li>Client sends a request.</li>
+        <li>Server immediately responds with a “handle id”.</li>
+        <li>Server continues to process that request.</li>
+        <li>Client requests using that “handle id” to check for status.</li>
+        <li>Server DOES NOT reply until it has the response ready.</li>
+        <li>Client can wait (or even disconnect).</li>
+    </ul>
+    <img src="pics/image32.png" alt="polling-long">
+    <br>
+    <h3>Where to use it:</h3>
+    <ul>
+        <li>Everywhere where “Short Polling” is used.</li>
+        <li>Where you may need near real-time updates.</li>
+    </ul>
+    <img src="pics/image33.png" alt="polling-long">
+    <br><br><br>
+    <h2 id="sse" class="section-titles"><u>>Server Sent Events (SSE)</u></h2>
+    <p>(The Server's Live Broadcast)</p>
+    <br>
+    <p>This is a design pattern that provides a simple, efficient, and standardized way for a server to send a continuous stream of text-based updates to a client over a single, long-lived HTTP connection. Unlike the "client-pull" model of polling, SSE is a native "server-push" technology. It's designed specifically for one-way communication: from the server to the client. This makes it ideal for scenarios where the client primarily needs to receive updates without sending much data back.</p>
+    <br>
+    <h3>How it works:</h3>
+    <ul>
+        <li>Client initiates a request.</li>
+        <li>Server sends a special Response: The server responds, but it sends a special <code>Content-Type: text/event-stream</code> header. This tells the client's browser that the response body is not a single file, but a continuous stream of events.</li>
+        <li>Its serves as an unending response stream.</li>
+    </ul>
+    <img src="pics/image34.png" alt="sse">
+    <br>
+    <h3>Where to use it:</h3>
+    <ul>
+        <li>Where client wants real time notifications.</li>
+        <ul>
+            <li>“A user just logged in!”</li>
+            <li>“A message is just received”</li>
+        </ul>
+        <li>Live progress indicators for long-running background tasks.</li>
+    </ul>
+    
+
+
+    <br><br><br>
+    <h2 id="pub-sub" class="section-titles"><u>>Publish Subscribe (Pub/Sub)</u></h2>
+    <p>(The Bulletin Board)</p>
+    <br>
+    <p>Moving beyond the polling-based patterns, we arrive at Publish/Subscribe (Pub/Sub), a powerful and highly decoupled messaging pattern. Unlike polling, where clients have to constantly ask for updates, Pub/Sub is a true event-driven, asynchronous mechanism that allows for one-to-many communication.</p>
+    <br>
+    <p>In Pub/Sub, clients don’t directly communicate. Instead, they they interact with a central messaging service, often called a “Message broker”. This broker acts as an intermediary, managing the flow of information.</p>
+    <br>
+    <p><u>This pattern consists of two major roles:</u></p>
+    <ul>
+        <li><b>Publishers</b>: These are the components that publish (or send) messages to a specific named channel, known as a topic. Publishers don't know who, or even if anyone, is listening. They just focus on sending their messages to the topic.</li>
+        <li><b>Subscribers</b>: These are the components that subscribe to a specific topic. They tell the message broker, "I'm interested in any messages sent to this topic." Subscribers receive messages asynchronously as soon as they are published to that topic.</li>
+    </ul>
+    <br>
+    <p>Think of it like a public email newsletter. The publisher writes a new post and sends it to the newsletter service (the broker). The service then distributes it to every single person who has subscribed, without the publisher having to know or care about who those subscribers are.</p>
+    <br>
+    <h3>How it works:</h3>
+    <ul>
+        <li>Publisher produces message/data and publishes to specific topic channels.</li>
+        <li>Subscribers listening to specific topic channel will receive message/data when its published on those channels.</li>
+        <li>Subscriber doesn’t need to know who the publisher is, and vise versa.</li>
+        <li>There is usually a message broker (middleware) or a message queue involved here that will handle the message distribution.</li>
+    </ul>
+    <img src="pics/image35.png" alt="pub-sub">
+    <br>
+    <h3>Where to use it:</h3>
+    <ul>
+        <li>Can be used in Decoupled Architectures.</li>
+        <li>Scalable Distributed Systems where a single event needs to trigger actions in multiple, separate services.</li>
+        <li>Microservices.</li>
+    </ul>
+    <br><br><br>
+    <h2 id="stateful-stateless" class="section-titles"><u>>Stateful vs Stateless</u></h2>
+    <p>(Remember or Forget)</p>
+    <br>
+    <p>When designing backend communication, one of the most fundamental architectural decisions you must make is whether your system will be stateful or stateless. This distinction determines how a server handles a client's requests and whether it remembers any context from previous interactions. The "state" in this context refers to any data that a server needs to remember about a client's session to handle subsequent requests.</p>
+    <br>
+    <p><b>Stateful</b>: In a stateful system, the server retains information or "state" about a client's session across multiple requests. The server remembers previous interactions and uses that stored context to process subsequent requests. This means a client often only needs to provide a small identifier (like a session ID or connection ID) in subsequent requests, and the server retrieves the rest of the context from its memory or a persistent store.</p>
+    <br>
+    <p><b>Stateless</b>: In a stateless system, the server treats every single request as an independent and isolated transaction. The server does not store or remember any information from previous requests. Here the client must include all the necessary information (e.g., authentication tokens, session IDs, data payloads) within each request itself. As each request is a self-contained unit.</p>
+    <br>
+    <p>TCP → Stateful</p>
+    <p>UDP → Stateless</p>
+    <br>
+    <h3>Which to use?</h3>
+    <p>Can you restart the backend during idle time and the client’s workflow should continue to work? → <b><u>Stateless</u></b></p>
+    <p>Should client’s information/state be stored for further subsequent requests? → <b><u>Stateful</u></b></p>
+    <br>
+    <p><b><u>Following are two illustrations showing how same scenario can be achieved via both stateful & stateless:</u></b></p>
+    <p>illustration 1:</p>
+    <img src="pics/image36.png" alt="stateful">
+    <p>illustration 2:</p>
+    <img src="pics/image37.png" alt="stateless">
+    <p>Technically here in illustration 2 backend is stateless, but the entire system is still stateful. (because if database dies, state dies)</p>
+    <br><br><br>
+    <h2 id="conclusion" class="section-titles"><u>>Conclusion</u></h2>
+    <p>So we went through some cool and majorly used design patterns.From the simple, yet powerful, Request-Response model to the highly decoupled Pub/Sub and the real-time efficiency of Server-Sent Events, each pattern is a specialized tool.</p>
+    <br>
+    <p>The art of backend communication design lies not in mastering one pattern, but in understanding the trade-offs and knowing which tool to use for the job. Choosing between a stateful or stateless architecture, or deciding whether polling is "good enough" versus investing in a push mechanism, fundamentally shapes your application's performance, scalability, and resilience.</p>
+    <br>
+    <p>I will try to keep updating this article as new stuff comes in my mind, you can also suggest me some topics or if you wish to contribute to this article, feel free to do so through this repository:</p>
+    <p>><a href="https://github.com/ProgrammerPratik/ProgrammerPratik.github.io/tree/master/articles">https://github.com/ProgrammerPratik/ProgrammerPratik.github.io/tree/master/articles</a></p>
+    <br>
+    <p>Hope you found this article helpful! Thanks for reading have a great day <3</p>
+    </div>
+    <script src="../script.js"></script>
+    <footer style="text-align: center; margin:25px">[<a href="#top">top</a> | <a class="theme-toggle" onclick="toggleTheme()">toggle theme</a>]</footer>
+</body>
+</html>
