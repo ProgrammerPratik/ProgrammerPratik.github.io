@@ -9,7 +9,16 @@
     margin-left: 20%;
     margin-right: 20%;
   } */
-  :root {
+:root {
+    --date-color: darkslategray;
+    --link-color: tomato;
+    --link-hover-color: rgb(251, 181, 193);
+    --pre-background: #f8f8f8;
+    --shuffle-hover: slategray;
+}
+
+[data-theme="yellow"] {
+--background-color: #fef6df;
     --date-color: darkslategray;
     --link-color: tomato;
     --link-hover-color: rgb(251, 181, 193);
@@ -27,13 +36,13 @@
     --shuffle-hover: #a9a9a9;
 }
 
-    body {
-        font-family: monospace, sans-serif;
-        margin-left: 20%;
-        margin-right: 20%;
-        background-color: var(--background-color);
-        color: var(--text-color);
-    }
+body {
+    font-family: monospace, sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
 
 .theme-toggle {
     color: var(--link-color);
@@ -278,8 +287,18 @@ a:hover {
     body {
         margin-left: 5%;
         margin-right: 5%;
-        line-height: 30px;
-      }
+        /* line-height: 30px; */
+    }
+    .mainthing{
+        line-height: 25px;
+    }
+    .fixed-gif{
+        visibility: hidden;
+    }
+    .mail{
+        height: 40px;
+        width: auto;
+    }
     .content{
         padding-top: 5%;
     }

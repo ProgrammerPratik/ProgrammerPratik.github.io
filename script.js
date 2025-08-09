@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function createPopup(x, y) {
         const popup = document.createElement('div');
         popup.className = 'popup';
-        if(fireScore>=10){
+        if(fireScore>=20){
+            popup.textContent = '♡';
+        } else if(fireScore>=10){
             popup.textContent = '❤️';
         } else{
             popup.textContent = '🔥';
@@ -23,8 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 1000);
     }
-    if (fireScore >= 10) {
-        document.getElementById('clickableGif').src = 'assets/nyan.gif'; // Replace with your new image URL
+    if (fireScore >= 20) {
+        document.getElementById('clickableGif').src = 'assets/cat1.gif'; // Replace with your new image URL
+    } else if(fireScore >= 10){
+        document.getElementById('clickableGif').src = 'assets/cat2.gif'; // Replace with your new image URL
     } else{
         document.getElementById('clickableGif').src = 'assets/bonfire.gif'; // Replace with your new image URL
     }
@@ -33,9 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
             fireScore++;
             localStorage.setItem('fireScore', fireScore);
             event.preventDefault();
-            if(fireScore>=20) fireScore = 0;
-            if (fireScore >= 10) {
-                document.getElementById('clickableGif').src = 'assets/nyan.gif'; // Replace with your new image URL
+            if(fireScore>=30) fireScore = 0;
+            if (fireScore >= 20) {
+                document.getElementById('clickableGif').src = 'assets/cat1.gif'; // Replace with your new image URL
+            } else if(fireScore >= 10){
+                document.getElementById('clickableGif').src = 'assets/cat2.gif'; // Replace with your new image URL
             } else{
                 document.getElementById('clickableGif').src = 'assets/bonfire.gif'; // Replace with your new image URL
             }
@@ -134,21 +140,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme');
+    const mailIcon = document.getElementById('mail');
+
     if (savedTheme === 'dark') {
         document.body.setAttribute('data-theme', 'dark');
-        document.getElementById('mail').src = 'assets/mail2.png';
+        mailIcon.src = 'assets/mail2.png';
+    } else if (savedTheme === 'yellow') {
+        document.body.setAttribute('data-theme', 'yellow');
+        // mail1.png seems to be the correct choice for the yellow theme too
+        mailIcon.src = 'assets/mail1.png';
+    } else { // This handles 'light' or no saved theme
+        document.body.removeAttribute('data-theme');
+        mailIcon.src = 'assets/mail1.png';
     }
 });
 
 function toggleTheme() {
     const body = document.body;
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.removeAttribute('data-theme');
+    const currentTheme = body.getAttribute('data-theme');
+    const mailIcon = document.getElementById('mail');
+
+    if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'yellow');
+        localStorage.setItem('theme', 'yellow');
+        // Assuming mail1.png is the light-colored mail icon that works on yellow
+        mailIcon.src = 'assets/mail1.png';
+    } else if (currentTheme === 'yellow') {
+        body.removeAttribute('data-theme'); // Reverts to the default/light theme
         localStorage.setItem('theme', 'light');
-        document.getElementById('mail').src = 'assets/mail1.png';
-    } else {
+        mailIcon.src = 'assets/mail1.png';
+    } else { // This is the default 'light' theme
         body.setAttribute('data-theme', 'dark');
-        document.getElementById('mail').src = 'assets/mail2.png';
         localStorage.setItem('theme', 'dark');
+        mailIcon.src = 'assets/mail2.png';
     }
 }
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const savedTheme = localStorage.getItem('theme');
+//     if (savedTheme === 'dark') {
+//         document.body.setAttribute('data-theme', 'dark');
+//         document.getElementById('mail').src = 'assets/mail2.png';
+//     }
+// });
+
+// function toggleTheme() {
+//     const body = document.body;
+//     if (body.getAttribute('data-theme') === 'dark') {
+//         body.removeAttribute('data-theme');
+//         localStorage.setItem('theme', 'light');
+//         document.getElementById('mail').src = 'assets/mail1.png';
+//     } else {
+//         body.setAttribute('data-theme', 'dark');
+//         document.getElementById('mail').src = 'assets/mail2.png';
+//         localStorage.setItem('theme', 'dark');
+//     }
+// }
