@@ -139,6 +139,44 @@ a:hover {
 .section-titles{
     color: var(--link-color);
 }
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+@media screen and (min-width: 768px) {
+    .job-title{
+        margin: 1%; 
+        margin-bottom: -2%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    table {
+
+        width: 100%;
+        min-width: 1000px; /* change table scrolling limit */
+        white-space: normal;
+    }
+
+    .table-container ul{
+        margin-left: 13px;
+    }
+
+    /* hide scrollbar */
+    /* .table-container::-webkit-scrollbar {
+        display: none;
+    } */
+}
 /*
 .mail {
     position: fixed;
